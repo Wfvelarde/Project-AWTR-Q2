@@ -2,7 +2,7 @@
 
 ##Team Logo:
 
-![Team Logo](TeamAWTR.png)
+![Team Logo](./assets/TeamAWTR.png)
 
 ##Catch phrase:  Link with your travel buddies.
 
@@ -17,7 +17,7 @@
 
 ##Landing Page Concept:
 
-![Landing Page](awtrApp.png)
+![Landing Page](./assets/awtrApp.png)
 
 ##Project Description:
     We are creating an asynchronous app that will allow family members to log in and create groups to coordinate their activities through a shared timetable.  
