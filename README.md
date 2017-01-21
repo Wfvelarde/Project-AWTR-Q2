@@ -1,5 +1,10 @@
 ##TEAM AWTR
 
+for DB team needs to
+createdb awtl_library
+knex migrate:latest
+knex seed:run
+
 ##Team Logo:
 
 ![Team Logo](./assets/TeamAWTR.png)
