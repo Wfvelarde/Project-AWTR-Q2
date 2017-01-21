@@ -1,0 +1,25 @@
+/*font-family: 'Cabin', sans-serif;
+font-family: 'Lobster Two', cursive;*/
+
+.awtrNav {
+  height:10vh !important;
+}
+
+.awtrLogo {
+  font-family: 'Lobster Two', cursive;
+  font-size: 9rem !important;
+  align-self: center;
+}
+
+.awtrNavWrapper {
+  display: flex;
+
+}
+.awtrMenuButtonCollapse {
+  align-self: center;
+  font-size: 5rem !important;
+}
+
+.awtrMenuFont {
+  font-size: 3rem !important;
+}
