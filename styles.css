@@ -13,6 +13,7 @@ font-family: 'Lobster Two', cursive;*/
 
 .awtrNavWrapper {
   display: flex;
+  background-color: #999999;
 
 }
 .awtrMenuButtonCollapse {
@@ -23,8 +24,20 @@ font-family: 'Lobster Two', cursive;*/
 .awtrMenuFont {
   font-size: 3rem !important;
 }
+/*MAIN*/
+
+.awtrMain {
+  display: flex;
+  background-color: #66cccc;
+  height: 80vh;
+}
 
 /*FOOTER*/
+.awtrPageFooter {
+  margin-top: 0px !important;
+  background-color: #999999 !important;
+
+}
 .awtrIconContainer {
   display: flex;
   justify-content: space-around;
