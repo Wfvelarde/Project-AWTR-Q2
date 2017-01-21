@@ -23,3 +23,12 @@ font-family: 'Lobster Two', cursive;*/
 .awtrMenuFont {
   font-size: 3rem !important;
 }
+
+/*FOOTER*/
+.awtrIconContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.awtrIcon {
+  height: 5vh;
+}
