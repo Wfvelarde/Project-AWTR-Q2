@@ -3,6 +3,12 @@ font-family: 'Lobster Two', cursive;*/
 
 .awtrNav {
   height:10vh !important;
+
+}
+
+.awtrHamburger {
+  height: 8vh;
+  align-self: center !important;
 }
 
 .awtrLogo {
@@ -14,7 +20,6 @@ font-family: 'Lobster Two', cursive;*/
 .awtrNavWrapper {
   display: flex;
   background-color: #999999;
-
 }
 .awtrMenuButtonCollapse {
   align-self: center;
