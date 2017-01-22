@@ -1,8 +1,11 @@
 /*font-family: 'Cabin', sans-serif;
 font-family: 'Lobster Two', cursive;*/
-
+/*nav {
+  line-height: normal !important;
+}*/
 .awtrNav {
   height:10vh !important;
+  line-height:10vh;
 
 }
 
@@ -14,12 +17,23 @@ font-family: 'Lobster Two', cursive;*/
 .awtrLogo {
   font-family: 'Lobster Two', cursive;
   font-size: 7vh !important;
-  align-self: center;
+  /*align-self: center;*/
+  margin-left: 1vw;
 }
 
+/*@media only screen and (min-width: 601px){
+  nav {
+    line-height: 150px;
+  }
+}*/
+
+.brand-logo {
+  left: 0;
+}
 .awtrNavWrapper {
-  display: flex;
+  /*display: flex;*/
   background-color: #999999;
+  justify-content: space-between;
 }
 .awtrMenuButtonCollapse {
   align-self: center;
@@ -31,10 +45,14 @@ font-family: 'Lobster Two', cursive;*/
 }
 /*MAIN*/
 
+main {
+  background-color: #66cccc;
+}
 .awtrMain {
   display: flex;
   background-color: #66cccc;
   height: 80vh;
+  width: 100%;
 }
 
 /*FOOTER*/
