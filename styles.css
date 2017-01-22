@@ -7,7 +7,7 @@ font-family: 'Lobster Two', cursive;*/
 
 .awtrLogo {
   font-family: 'Lobster Two', cursive;
-  font-size: 9rem !important;
+  font-size: 7vh !important;
   align-self: center;
 }
 
@@ -22,7 +22,7 @@ font-family: 'Lobster Two', cursive;*/
 }
 
 .awtrMenuFont {
-  font-size: 3rem !important;
+  font-size: 4vh !important;
 }
 /*MAIN*/
 
@@ -44,4 +44,9 @@ font-family: 'Lobster Two', cursive;*/
 }
 .awtrIcon {
   height: 5vh;
+}
+
+.awtrFooterContBig {
+  display: flex;
+  justify-content: center;
 }
