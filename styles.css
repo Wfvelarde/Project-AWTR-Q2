@@ -85,12 +85,23 @@ main {
   color:black;
 }
 /*FOOTER*/
+
+footer {
+  font-family: 'Cabin', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+
+}
 .awtrPageFooter {
   font-family: 'Cabin', sans-serif;
   margin-top: 0px !important;
   background-color: #999999 !important;
+
   -webkit-font-smoothing: antialiased;
   color:white !important;
+
+  /*height: 10vh;*/
+
 }
 .awtrIconContainer {
   display: flex;
