@@ -4,107 +4,200 @@ font-family: 'Lobster Two', cursive;*/
   line-height: normal !important;
 }*/
 
-
-.awtrNav {
-  height:10vh !important;
-  line-height:10vh;
-}
-
-.awtrHamburger {
-  height: 8vh;
-  align-self: center !important;
-}
-
-.awtrLogo {
-  font-family: 'Lobster Two', cursive;
-  font-size: 7vh !important;
-  /*align-self: center;*/
-  margin-left: 1vw;
-}
-
-
-.brand-logo {
-  left: 0;
-}
-
-.awtrNavWrapper {
-  /*display: flex;*/
-  background-color: #999999;
-  justify-content: space-between;
-}
-
-.awtrMenuButtonCollapse {
-  align-self: center;
-  font-size: 5rem !important;
-}
-
-.awtrMenuFont {
-  font-size: 4vh !important;
-}
-
-
-/*MAIN*/
-main {
-  background-color: #66cccc;
-  color: grey;
-}
-.awtrMain {
-  display: flex;
-  background-color: #66cccc;
-  height: 80vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.awtrButtonContainer {
-  width:auto;
-  height: 10vh;
-  display: flex;
-}
-.awtrLinkButton {
-  display: flex;
-  background-color: transparent;
-  color: grey;
-  opacity: 50% !important;
-  height: 10vh;
-  width: auto;
-  border-style: solid;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  padding: 2%;
+  *{
+    font-family: 'Cabin', sans-serif;
+    color:#999999;
+    -webkit-font-smoothing: antialiased;
   }
 
-.btn-large {
-  background-color: none !important;
-}
+  .awtrNav {
+    height:10vh !important;
+    line-height:10vh;
+  }
 
-.side-nav {
-  color:black;
-}
+  .awtrHamburger {
+    height: 8vh;
+    align-self: center !important;
+    padding-top: 30%;
+  }
+
+  .awtrLogo {
+    font-family: 'Lobster Two', cursive;
+    font-size: 7vh !important;
+    align-self: center;
+    margin-left: 1vw;
+  }
+
+  .brand-logo {
+    left: 0;
+  }
+
+  .awtrNavWrapper {
+    /*display: flex;*/
+    background-color: #999999;
+    justify-content: space-between;
+    align-items: center !important;
+    align-content: center;
+  }
+
+  .awtrMenuButtonCollapse {
+    align-self: center;
+    font-size: 4rem !important;
+
+  }
+
+  .awtrMenuFont {
+    font-size: 4vh !important;
+  }
+
+/*FORM*/
+
+  #form-in {
+    font-size: 2rem;
+  }
+  #username {
+    font-size: 2rem;
+  }
+  #signin {
+    position: flex;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid;
+    height: auto;;
+    width: 100%;
+    background-color: lightgrey;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15%;
+  }
+  .awtrSignIn{
+    padding: 0;
+    margin: 0;
+  }
+  .col {
+    padding: 0 !important;
+  }
+  #signup {
+    position: flex;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid;
+    height: auto;;
+    width: 100%;
+    background-color: lightgrey;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15%;
+  }
+  #username::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+  #password::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+  #confirmpassword::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+  #firstname::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+  #lastname::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+  #email::-webkit-input-placeholder { /* Chrome */
+    color: #cc9966;
+    font-size: 2rem;
+  }
+
+/*MAIN*/
+
+  main {
+    background-color: #66cccc;
+    color: grey;
+  }
+
+  .awtrMain {
+    display: flex;
+    background-color: #66cccc;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .awtrButtonContainer {
+    width:auto;
+    height: auto;
+    display: flex;
+  }
+
+  .awtrLinkButton {
+    display: flex;
+    background-color: transparent;
+    font-family: 'Cabin', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: grey;
+    opacity: 50% !important;
+    height: auto;
+    width: auto;
+    border: 1px solid;
+    justify-content: center;
+    border-radius: 2vh;
+    align-items: center;
+    font-size: 3rem;
+    padding: 5%;
+    text-transform: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .btn-large {
+    background-color: none !important;
+  }
+
+  .side-nav {
+    color:black;
+  }
+
+
 /*FOOTER*/
-.awtrPageFooter {
-  font-family: 'Cabin', sans-serif;
-  margin-top: 0px !important;
-  background-color: #999999 !important;
-  -webkit-font-smoothing: antialiased;
-  color:white !important;
-}
-.awtrIconContainer {
-  display: flex;
-  justify-content: space-around;
-}
-.awtrIcon {
-  height: 5vh;
-}
+  .awtrPageFooter {
+    font-family: 'Cabin', sans-serif;
+    margin-top: 0px !important;
+    background-color: #999999 !important;
+    -webkit-font-smoothing: antialiased;
+    color:white !important;
+  }
 
-.awtrFooterContBig {
-  display: flex;
-  justify-content: center;
-}
+  .awtrIconContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .awtrIcon {
+    height: 5vh;
+  }
 
-.awtrLowerFooter {
-  color:white;
-}
+  .awtrFooterContBig {
+    display: flex;
+    justify-content: center;
+  }
+
+  .awtrLowerFooter {
+    color:white !important;
+  }
+
+  .awtrFooterCopyright {
+    color:white !important;
+
+  }
