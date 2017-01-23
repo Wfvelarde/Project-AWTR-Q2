@@ -5,6 +5,10 @@ $( document ).ready(function(){
     draggable: true
   });
 
+  // var table_changes = require('./table_changes.js');
+  //
+  // console.log ("require stuff " + table_changes.members_update);
+
   $("#signin").click(function(){
     event.preventDefault();
     if($("#signin-form").html()===""){
@@ -74,7 +78,13 @@ $( document ).ready(function(){
     if (data.username !==""&&data.password !==""&&data.confirmpassword===data.password&&
         data.firstname !==""&&data.lastname !==""&&data.email !==""){
       var dataUp = data;
+      console.log("this is dataUp");
       console.log(dataUp);
+      console.log("this is firstname");
+      console.log(dataUp.firstname);
+
+
+
 
     }
   }
