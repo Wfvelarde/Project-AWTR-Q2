@@ -2,6 +2,9 @@ exports.up = function(knex, Promise) {
   return knex.schema
   .createTable('members', function(table){
     table.increments();
+    table.string('username');
+    table.string('password');
+    table.string('email');
     table.string('first_name');
     table.string('last_name');
     table.string('avatar');
@@ -15,17 +18,18 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name');
     table.integer('romps_id').references("romps", "id");
-    table.integer('member_id').references("members", "id");
+    table.integer('members_id').references("members", "id");
   })
   .createTable('schedule', function(table){
     table.increments();
     table.string('name');
+    table.string('timeslot');
     table.integer('romps_id').references("romps", "id");
   })
   .createTable('time_slot', function(table){
     table.increments();
     table.string('name');
-    table.integer('time')
+    table.string('time');
     table.integer('schedule_id').references("schedule", "id");
   })
   .createTable('vote_join', function(table){
