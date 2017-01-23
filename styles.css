@@ -21,11 +21,6 @@ font-family: 'Lobster Two', cursive;*/
   margin-left: 1vw;
 }
 
-/*@media only screen and (min-width: 601px){
-  nav {
-    line-height: 150px;
-  }
-}*/
 
 .brand-logo {
   left: 0;
@@ -56,9 +51,17 @@ main {
 }
 
 /*FOOTER*/
+
+footer {
+  font-family: 'Cabin', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+
+}
 .awtrPageFooter {
   margin-top: 0px !important;
   background-color: #999999 !important;
+  /*height: 10vh;*/
 
 }
 .awtrIconContainer {
