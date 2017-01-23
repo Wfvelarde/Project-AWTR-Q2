@@ -1,0 +1,19 @@
+
+#username::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#password::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#confirmpassword::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#firstname::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#lastname::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}
+#email::-webkit-input-placeholder { /* Chrome */
+  color: red;
+}

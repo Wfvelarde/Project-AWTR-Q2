@@ -10,11 +10,21 @@ $(function(){
     $("#signup-form").html('');
     }
   }else{
-    var dataIn = $("#form-in").serializeArray().reduce(function(obj,item){
+    var data = $("#form-in").serializeArray().reduce(function(obj,item){
       obj[item.name]=item.value;
       return obj;
     },{});
-    console.log(dataIn);
+    if (data.password ===""){
+      $("#password").attr("placeholder", "Please provide password");
+    }
+    if(data.username ===""){
+      $("#username").attr("placeholder", "Please provide username");
+    }
+    if (data.username !==""&&data.password !==""){
+      var dataIn = data;
+      console.log(dataIn);
+
+    }
   }
   });
 
@@ -33,11 +43,34 @@ $(function(){
       $("#signin-form").html('');
     }
   }else{
-    var dataUp = $("#form-in").serializeArray().reduce(function(obj,item){
+    var data = $("#form-in").serializeArray().reduce(function(obj,item){
       obj[item.name]=item.value;
       return obj;
     },{});
-    console.log(dataUp);
+    if (data.password ===""){
+      $("#password").attr("placeholder", "Please provide password");
+    }
+    if(data.username ===""){
+      $("#username").attr("placeholder", "Please provide username");
+    }
+    if (data.confirmpassword !== data.password || data.password ===""){
+      $("#confirmpassword").attr("placeholder", "Password does not match");
+    }
+    if(data.firstname ===""){
+      $("#firstname").attr("placeholder", "Please provide first name");
+    }
+    if(data.lastname ===""){
+      $("#lastname").attr("placeholder", "Please provide last name");
+    }
+    if(data.email ===""){
+      $("#email").attr("placeholder", "Please provide email");
+    }
+    if (data.username !==""&&data.password !==""&&data.confirmpassword===data.password&&
+        data.firstname !==""&&data.lastname !==""&&data.email !==""){
+      var dataUp = data;
+      console.log(dataUp);
+
+    }
   }
   });
 
