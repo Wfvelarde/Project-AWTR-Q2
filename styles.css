@@ -6,7 +6,6 @@ font-family: 'Lobster Two', cursive;*/
 .awtrNav {
   height:10vh !important;
   line-height:10vh;
-
 }
 
 .awtrHamburger {
@@ -21,20 +20,17 @@ font-family: 'Lobster Two', cursive;*/
   margin-left: 1vw;
 }
 
-/*@media only screen and (min-width: 601px){
-  nav {
-    line-height: 150px;
-  }
-}*/
 
 .brand-logo {
   left: 0;
 }
+
 .awtrNavWrapper {
   /*display: flex;*/
   background-color: #999999;
   justify-content: space-between;
 }
+
 .awtrMenuButtonCollapse {
   align-self: center;
   font-size: 5rem !important;
@@ -43,8 +39,9 @@ font-family: 'Lobster Two', cursive;*/
 .awtrMenuFont {
   font-size: 4vh !important;
 }
-/*MAIN*/
 
+
+/*MAIN*/
 main {
   background-color: #66cccc;
 }
@@ -53,13 +50,40 @@ main {
   background-color: #66cccc;
   height: 80vh;
   width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.awtrButtonContainer {
+  width:50%;
+  height: auto;
+  display: flex;
+}
+.awtrLinkButton {
+  display: flex;
+  background-color: transparent;
+  color: grey;
+  opacity: 50% !important;
+  height: auto;
+  width: 50vw;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  padding: 0;
+  }
+
+.btn-large {
+  background-color: none !important;
 }
 
 /*FOOTER*/
 .awtrPageFooter {
+  font-family: 'Cabin', sans-serif;
   margin-top: 0px !important;
   background-color: #999999 !important;
-
+  -webkit-font-smoothing: antialiased;
 }
 .awtrIconContainer {
   display: flex;
