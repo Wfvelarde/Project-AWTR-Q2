@@ -2,18 +2,18 @@
     width: 25%;
     height: 100px;
     left:28%;
-    top:20%;
+    top:0%;
     position: relative;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
     /*animation-name: example;
     animation-duration: 4s;*/
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-    0%   { left:-50%; top:20%;}
-    100% {left:28%; top:20%;}
+    0%   { left:-50%; top:0%;}
+    100% {left:28%; top:0%;}
 }
 
 #otter2 {
@@ -22,7 +22,7 @@
     left:22%;
     position: relative;
     -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2.1s; /* Safari 4.0 - 8.0 */
     /*animation-name: example;
     animation-duration: 4s;*/
 }
