@@ -3,6 +3,8 @@ font-family: 'Lobster Two', cursive;*/
 /*nav {
   line-height: normal !important;
 }*/
+
+
 .awtrNav {
   height:10vh !important;
   line-height:10vh;
@@ -44,6 +46,7 @@ font-family: 'Lobster Two', cursive;*/
 /*MAIN*/
 main {
   background-color: #66cccc;
+  color: grey;
 }
 .awtrMain {
   display: flex;
@@ -56,8 +59,8 @@ main {
 }
 
 .awtrButtonContainer {
-  width:50%;
-  height: auto;
+  width:auto;
+  height: 10vh;
   display: flex;
 }
 .awtrLinkButton {
@@ -65,25 +68,29 @@ main {
   background-color: transparent;
   color: grey;
   opacity: 50% !important;
-  height: auto;
-  width: 50vw;
+  height: 10vh;
+  width: auto;
   border-style: solid;
   justify-content: center;
   align-items: center;
   font-size: 26px;
-  padding: 0;
+  padding: 2%;
   }
 
 .btn-large {
   background-color: none !important;
 }
 
+.side-nav {
+  color:black;
+}
 /*FOOTER*/
 .awtrPageFooter {
   font-family: 'Cabin', sans-serif;
   margin-top: 0px !important;
   background-color: #999999 !important;
   -webkit-font-smoothing: antialiased;
+  color:white !important;
 }
 .awtrIconContainer {
   display: flex;
@@ -96,4 +103,8 @@ main {
 .awtrFooterContBig {
   display: flex;
   justify-content: center;
+}
+
+.awtrLowerFooter {
+  color:white;
 }
