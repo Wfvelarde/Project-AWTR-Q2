@@ -1,4 +1,4 @@
-.otter1 {
+#otter1 {
     width: 25%;
     height: 100px;
     left:28%;
@@ -16,10 +16,10 @@
     100% {left:28%; top:20%;}
 }
 
-.otter2 {
+#otter2 {
     width: 25%;
     height: 100px;
-    left:46%;
+    left:22%;
     position: relative;
     -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
@@ -30,5 +30,5 @@
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes otter2 {
     0%   {left:150%; top:0px;}
-    100% {left:46%; top:0px;}
+    100% {left:22%; top:0px;}
 }
