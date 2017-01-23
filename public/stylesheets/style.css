@@ -1,8 +1,219 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/*font-family: 'Cabin', sans-serif;
+font-family: 'Lobster Two', cursive;*/
+/*nav {
+  line-height: normal !important;
+}*/
 
-a {
-  color: #00B7FF;
-}
+  *{
+    font-family: 'Cabin', sans-serif;
+    color:#999999;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .awtrNav {
+    height:10vh !important;
+    line-height:10vh;
+  }
+
+  .awtrHamburger {
+    height: 8vh;
+    align-self: center !important;
+    padding-top: 30%;
+  }
+
+  .awtrLogo {
+    font-family: 'Lobster Two', cursive;
+    font-size: 7vh !important;
+    align-self: center;
+    margin-left: 1vw;
+  }
+
+  .brand-logo {
+    left: 0;
+  }
+
+  .awtrNavWrapper {
+    /*display: flex;*/
+    background-color: #999999;
+    justify-content: space-between;
+    align-items: center !important;
+    align-content: center;
+  }
+
+  .awtrMenuButtonCollapse {
+    align-self: center;
+    font-size: 4rem !important;
+
+  }
+
+  .awtrMenuFont {
+    font-size: 4vh !important;
+  }
+
+/*FORM*/
+
+  #form-in {
+    font-size: 3rem;
+    padding: 10%;
+  }
+  #username {
+    font-size: 3rem;
+  }
+  #signin {
+    position: flex;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid;
+    height: auto;;
+    width: 100%;
+    background-color: lightgrey;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15%;
+    color: #595959;
+
+  }
+  .awtrSignIn{
+    padding: 0;
+    margin: 0;
+  }
+  .col {
+    padding: 0 !important;
+  }
+  #signup {
+    position: flex;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid;
+    height: auto;;
+    width: 100%;
+    background-color: lightgrey;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15%;
+    color: #595959;
+  }
+  #username::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: 4rem;
+  }
+  #password::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: 4rem;
+  }
+  #confirmpassword::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: auto;
+  }
+  #firstname::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: auto;
+  }
+  #lastname::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: auto;
+  }
+  #email::-webkit-input-placeholder { /* Chrome */
+    color: #66cccc;
+    font-size: 3rem;
+    padding-left: 10%;
+    height: auto;
+  }
+
+/*MAIN*/
+
+  main {
+    background-color: #66cccc;
+    color: grey;
+  }
+
+  .awtrMain {
+    display: flex;
+    background-color: #66cccc;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .awtrButtonContainer {
+    width:auto;
+    height: auto;
+    display: flex;
+  }
+
+  .awtrLinkButton {
+    display: flex;
+    background-color: transparent;
+    font-family: 'Cabin', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: grey;
+    opacity: 50% !important;
+    height: auto;
+    width: auto;
+    border: 1px solid;
+    justify-content: center;
+    border-radius: 2vh;
+    align-items: center;
+    font-size: 3rem;
+    padding: 5%;
+    text-transform: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .btn-large {
+    background-color: none !important;
+  }
+
+  .side-nav {
+    color:black;
+  }
+
+
+/*FOOTER*/
+  .awtrPageFooter {
+    font-family: 'Cabin', sans-serif;
+    margin-top: 0px !important;
+    background-color: #999999 !important;
+    -webkit-font-smoothing: antialiased;
+    color:white !important;
+  }
+
+  .awtrIconContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .awtrIcon {
+    height: 5vh;
+  }
+
+  .awtrFooterContBig {
+    display: flex;
+    justify-content: center;
+  }
+
+  .awtrLowerFooter {
+    color:white !important;
+  }
+
+  .awtrFooterCopyright {
+    color:white !important;
+
+  }
