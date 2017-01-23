@@ -1,7 +1,7 @@
 ##TEAM AWTR
 
 for DB team needs to
-createdb awtl_library
+createdb awtr_library
 knex migrate:latest
 knex seed:run
 

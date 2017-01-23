@@ -14,7 +14,7 @@ exports.up = function(knex, Promise) {
   .createTable('romps_members_join', function(table){
     table.increments();
     table.string('name');
-    table.integer('romps').references("romps", "id");
+    table.integer('romps_id').references("romps", "id");
     table.integer('member_id').references("members", "id");
   })
   .createTable('schedule', function(table){
