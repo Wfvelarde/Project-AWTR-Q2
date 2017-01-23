@@ -5,10 +5,10 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
-        knex('romps').insert({id: 1, name: "Bvrs"}),
-        knex('romps').insert({id: 2, name: 'Cels'}),
-        knex('romps').insert({id: 3, name: 'PnGwns'}),
-        knex('romps').insert({id: 4, name: 'ManTz'})
+        knex('romps').insert({name: "Bvrs"}),
+        knex('romps').insert({name: 'Cels'}),
+        knex('romps').insert({name: 'PnGwns'}),
+        knex('romps').insert({name: 'ManTz'})
       ]);
     });
 };
