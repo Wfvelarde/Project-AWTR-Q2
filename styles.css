@@ -1,19 +1,39 @@
 /*font-family: 'Cabin', sans-serif;
 font-family: 'Lobster Two', cursive;*/
-
+/*nav {
+  line-height: normal !important;
+}*/
 .awtrNav {
   height:10vh !important;
+  line-height:10vh;
+
+}
+
+.awtrHamburger {
+  height: 8vh;
+  align-self: center !important;
 }
 
 .awtrLogo {
   font-family: 'Lobster Two', cursive;
-  font-size: 9rem !important;
-  align-self: center;
+  font-size: 7vh !important;
+  /*align-self: center;*/
+  margin-left: 1vw;
 }
 
-.awtrNavWrapper {
-  display: flex;
+/*@media only screen and (min-width: 601px){
+  nav {
+    line-height: 150px;
+  }
+}*/
 
+.brand-logo {
+  left: 0;
+}
+.awtrNavWrapper {
+  /*display: flex;*/
+  background-color: #999999;
+  justify-content: space-between;
 }
 .awtrMenuButtonCollapse {
   align-self: center;
@@ -21,14 +41,35 @@ font-family: 'Lobster Two', cursive;*/
 }
 
 .awtrMenuFont {
-  font-size: 3rem !important;
+  font-size: 4vh !important;
+}
+/*MAIN*/
+
+main {
+  background-color: #66cccc;
+}
+.awtrMain {
+  display: flex;
+  background-color: #66cccc;
+  height: 80vh;
+  width: 100%;
 }
 
 /*FOOTER*/
+.awtrPageFooter {
+  margin-top: 0px !important;
+  background-color: #999999 !important;
+
+}
 .awtrIconContainer {
   display: flex;
   justify-content: space-around;
 }
 .awtrIcon {
   height: 5vh;
+}
+
+.awtrFooterContBig {
+  display: flex;
+  justify-content: center;
 }
