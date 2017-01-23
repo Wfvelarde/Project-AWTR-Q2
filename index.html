@@ -1,79 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <!-- HEAD -->
   <head>
-    <meta charset="utf-8">
-    <title>Awtr</title>
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-      integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-      crossorigin="anonymous"></script>
+      <meta charset="utf-8">
+      <title>Awtr</title>
+      <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster+Two" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster+Two" rel="stylesheet">
   </head>
 <!-- BODY -->
   <body>
+
 <!-- NAV/HEADER -->
-    <header>
-      <nav class="awtrNav">
-        <div class="awtrNavWrapper nav-wrapper">
-          <a href="#!" class="awtrLogo brand-logo">Awtr</a>
-          <a href="#" data-activates="mobile-demo" class="awtrMenuButtonCollapse button-collapse"><img class = "awtrHamburger" src = "./assets/images/three-bars.svg"></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
-      </div>
-      </nav>
+      <header>
+          <nav class="awtrNav">
+              <div class="awtrNavWrapper nav-wrapper">
+                  <a href="index2.html" class="awtrLogo brand-logo">Awtr</a>
+                  <a href="#" data-activates="mobile-demo" class="awtrMenuButtonCollapse button-collapse"><img class="awtrHamburger" src="./assets/images/three-bars.svg"></a>
+                  <!-- <ul class="right hide-on-med-and-down">
+                    <li><div id = "signin-form" ></div></li>
+                    <li><h4 id= "signin" class="waves-effect waves-orange btn-flat">Sign-in</h4></li>
+                    <li><div id = "signup-form" ></div></li>
+                    <li><h4 id= "signup" class="waves-effect waves-orange btn-flat">Sign-up</h4></li>
+                  </ul> -->
 
-<!-- <nav class="awtrNav">
-  <div class="awtrNavWrapper nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-      <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-      <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-      <li><a href="mobile.html"><i class="material-icons"><img class = "awtrHamburger" src = "./assets/images/three-bars.svg"></i></a></li>
-    </ul>
-  </div>
-</nav> -->
-    </header>
-<!-- MAIN   -->
-    <main>
-      <div class="awtrMain col l12 s12">
+                  <div class="side-nav" id="mobile-demo">
+                    <div class="row">
+                      <div class = "col s10">
+                      <div id = "signin-form" ></div>
+                      <h4 id= "signin" class="waves-effect waves-orange btn-flat">Sign-in</h4>
+                      <div id = "signup-form" ></div>
+                      <h4 id= "signup" class="waves-effect waves-orange btn-flat">Sign-up</h4>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+              <div>
+              <ul id="slide-out" class="side-nav">
+                  <li>
+                      <div class="userView">
+                          <div class="background">
+                              <img src="">
+                          </div>
+                          <a href="#!user"><img class="circle" src=""></a>
+                          <a href="#!name"><span class="white-text name">John Doe</span></a>
+                          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                      </div>
+                  </li>
+                  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                  <li><a href="#!">Second Link</a></li>
+                  <li>
+                      <div class="divider"></div>
+                  </li>
+                  <li><a class="subheader">Subheader</a></li>
+                  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+              </ul>
+              </div>
+          </nav>
+      </header>
 
-      </div>
-    </main>
-<!-- FOOTER -->
-    <footer class="awtrPageFooter page-footer">
-      <div class="container">
-          <div class="awtrFooterContBig row">
-            <div class="awtrIconContainer col l12 s12">
-              <div class ="awtrIcon1"><img class ="awtrIcon" src="./assets/images/smiley.svg"></div>
-              <div class ="awtrIcon1"><img class ="awtrIcon" src="./assets/images/mark-github.svg"></div>
-              <div class ="awtrIcon1"><img class ="awtrIcon" src="./assets/images/mail.svg"></div>
-
+      <!-- MAIN   -->
+      <main>
+          <div class="awtrMain col l12 s12">
+            <div class = "awtrButtonContainer">
+              <a class="awtrLinkButton waves-effect waves-teal btn-flat">Link with your travel buddies!</a>
             </div>
           </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">
-            © 2017 AWTR Group Incorporated
-            <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="awtrPageFooter page-footer">
+          <div class="awtrLowerFooter container">
+              <div class="awtrFooterContBig row">
+                  <div class="awtrIconContainer col l12 s12">
+                      <div class="awtrIcon1"><img class="awtrIcon" src="./assets/images/smiley.svg"></div>
+                      <div class="awtrIcon1"><img class="awtrIcon" src="./assets/images/mark-github.svg"></div>
+                      <div class="awtrIcon1"><img class="awtrIcon" src="./assets/images/mail.svg"></div>
+                  </div>
+              </div>
           </div>
-      </div>
-    </footer>
+          <div class="footer-copyright">
+              <div class="container">
+                  © 2017 AWTR Group Incorporated
+              </div>
+          </div>
+      </footer>
   </body>
   <script src="index.js"></script>
+
 </html>
