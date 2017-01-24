@@ -59,6 +59,21 @@ font-family: 'Lobster Two', cursive;*/
   #username {
     font-size: 3rem;
   }
+  #password {
+    font-size: 3rem;
+  }
+  #confirmpassword {
+    font-size: 3rem;
+  }
+  #firstname {
+    font-size: 3rem;
+  }
+  #lastname {
+    font-size: 3rem;
+}
+  #email {
+    font-size: 3rem;
+  }
   #signin {
     position: flex;
     font-size: 4rem;
@@ -136,7 +151,11 @@ font-family: 'Lobster Two', cursive;*/
     height: auto;
   }
 
+
 /*MAIN*/
+  .otters {
+    position: absolute;
+  }
 
   main {
     background-color: #66cccc;
