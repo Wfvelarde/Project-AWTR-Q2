@@ -1,0 +1,91 @@
+/*
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	flex-direction: row-reverse;
+	height: 10em;
+	background-color: #999999;
+}
+
+body {
+	background-color: #66CCCC;
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 10em;
+}
+
+.awtr {
+	text-align: center;
+	font-size: 7em;
+}
+
+#brand {
+
+	font-size: 5em;
+	font-family: 'Lobster', cursive;
+}
+
+
+.side {
+	width: 300px;
+}
+
+
+.prof-pic {
+	border-radius: 50%;
+	height: 50%;
+	width: 25%;
+	margin-left: 4vw;
+	margin-right: 1em;
+	
+}
+
+.info-box {
+	margin-right: 4vw;
+	font-size: 3em;
+}
+
+
+
+#rompname {
+	color: grey;
+}*/
+
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 25%;
+	width: 100%;
+	background-image: url("../assets/bedrock.jpg");
+	background-size: cover;
+}
+
+.container {
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
