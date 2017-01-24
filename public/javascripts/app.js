@@ -8,10 +8,6 @@ $( document ).ready(function(){
   });
 
 
-  var express = require('express')
-  var app = express()
-
-
 
   $("#signin").click(function(){
     event.preventDefault();
