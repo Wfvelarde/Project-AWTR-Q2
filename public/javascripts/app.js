@@ -7,9 +7,11 @@ $( document ).ready(function(){
     draggable: true
   });
 
-  // var table_changes = require('./table_changes.js');
-  //
-  // console.log ("require stuff " + table_changes.members_update);
+
+  var express = require('express')
+  var app = express()
+
+
 
   $("#signin").click(function(){
     event.preventDefault();
@@ -85,6 +87,9 @@ $( document ).ready(function(){
       console.log("this is firstname");
       console.log(dataUp.firstname);
 
+    $.post('/members', dataUp, function(data) {
+      console.log(data);
+    })
 
 
 
