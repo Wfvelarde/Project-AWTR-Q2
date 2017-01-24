@@ -11,6 +11,7 @@ var members = require('./routes/members');
 // var romps = require('./routes/romps');
 // var romps = require('./routes/activity');
 
+
 var app = express();
 
 // view engine setup
@@ -30,6 +31,7 @@ app.use('/users', users);
 app.use('/members', members);
 // app.use('/romps', romps);
 // app.use('/activity', activity);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

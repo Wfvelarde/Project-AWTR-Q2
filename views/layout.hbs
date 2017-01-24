@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html>
+
+<!-- HEAD -->
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <meta charset="utf-8">
+      <title>Awtr</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+      <link rel="stylesheet" href="stylesheets/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster+Two" rel="stylesheet">
   </head>
+<!-- BODY -->
   <body>
-    {{{body}}}
+
+      {{{body}}}
+
+<!-- FOOTER -->
+      <footer class="awtrPageFooter page-footer">
+          <div class="awtrLowerFooter container">
+              <div class="awtrFooterContBig row">
+                  <div class="awtrIconContainer col l12 s12">
+                      <div class="awtrIcon1"><img class="awtrIcon" src="images/smiley.svg"></div>
+                      <div class="awtrIcon1"><img class="awtrIcon" src="images/mark-github.svg"></div>
+                      <div class="awtrIcon1"><img class="awtrIcon" src="images/mail.svg"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="awtrFooterCopyright footer-copyright">
+              <div class="container">
+                  © 2017 AWTR Group Incorporated
+              </div>
+          </div>
+      </footer>
   </body>
+  <script src="javascripts/app.js"></script>
+
 </html>

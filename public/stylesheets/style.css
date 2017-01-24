@@ -234,5 +234,18 @@ font-family: 'Lobster Two', cursive;*/
 
   .awtrFooterCopyright {
     color:white !important;
-
   }
+
+  /*.container {
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-around;
+  	height: 25%;
+  	width: 100%;
+  	background-image: url("../images/bedrock.jpg");
+  	background-size: cover;
+  }
+
+  .container {
+  	width: 100%;
+  }*/
