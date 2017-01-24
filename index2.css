@@ -1,4 +1,4 @@
-
+/*
 
 nav {
 	display: flex;
@@ -16,8 +16,8 @@ body {
 
 footer {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	right: 0;
 	bottom: 0;
@@ -36,29 +36,11 @@ footer {
 	font-family: 'Lobster', cursive;
 }
 
-.icons {
-	display: flex;
-	align-items: center;
-}
-
-.names {
-	margin-left: 1em;
-	font-size: large;
-}
 
 .side {
 	width: 300px;
 }
 
-.container{
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	height: 25%;
-	width: 100%;
-	background-image: url("../assets/bedrock.jpg");
-	background-size: cover;
-}
 
 .prof-pic {
 	border-radius: 50%;
@@ -76,8 +58,24 @@ footer {
 
 
 
+#rompname {
+	color: grey;
+}*/
 
 
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 25%;
+	width: 100%;
+	background-image: url("../assets/bedrock.jpg");
+	background-size: cover;
+}
+
+.container {
+	width: 100%;
+}
 
 
 

@@ -3,47 +3,67 @@
 
 <head>
     <title>Awtr</title>
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="index2.css">
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.js"></script>
-    <link rel="stylesheet" type="text/css" href="index2.css">
 </head>
 
 <body>
-    <nav>
-    <a href="#" id="brand" class="brand-logo center">Awtr</a>
-        
-        <div id="slide-out" class="side-nav">
-            <div class="container">
-                <img class="prof-pic" src="assets/otter-profile.jpg">
-                <
-                <p class="info-box">HEY MOTHA LICKA THIS IS MA DAMN NAME</p>
-            </div>
+<!-- side nav -->
+    <div id="slide-out" class="side-nav">
+    <!-- side nav backgrond -->
+        <div class="container">
         </div>
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars fa-5x" aria-hidden="true"></i></a>
-    </nav>
-    <footer class="page-footer grey darken-1">
-        <div class="icons">
-            <i class="fa fa-github-square fa-5x" aria-hidden="true"></i>
-            <ul class="names">
-                <li><a href="https://github.com/taramason">Tara Mason</a></li>
-                <li><a href="https://github.com/austintedwards">Austin Edwards</a></li>
-                <li><a href="https://github.com/BZhawaii">Richard Beese</a></li>
-                <li><a href="https://github.com/Wfvelarde">William Velarde</a></li>
-            </ul>
+
+        <div class="container-2">
+        <!-- drop down -->
+            <section>
+                <ul id="selectromp" class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header">
+                            <h4>Select Romp</h4></div>
+                        <div class="collapsible-body">
+                            Romp List:
+                            <br>
+                            <div id="romplist">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="rompcreater" class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header">
+                            <h4>Create Romp</h4></div>
+                        <div class="collapsible-body">
+                            <div id="romp-form">
+                                <div class="romp-content">
+                                    <form id="form">
+                                        Romp Name:
+                                        <br>
+                                        <input id="rompname" type="text" name="rompname" value="">
+                                        <br>
+                                    </form>
+                                    <div id="new-romp"></div>
+                                    <div class="button">
+                                        <a id="create-romp1" class="waves-effect waves-teal btn-flat">Create Romp</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <h4>Help</h4></div>
+                        <div class="collapsible-body">
+                            <p>This a rief description if you need any help making a romp.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
-        <div class="icons">
-            <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
-            <ul class="names">
-                <li><a href="https://www.linkedin.com/in/taraleemason?authType=NAME_SEARCH&authToken=e5I0&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A29545605%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1485204470958%2Ctas%3Atara%20mason">Tara Mason</a></li>
-                <li><a href="https://www.linkedin.com/in/austintedwards?authType=NAME_SEARCH&authToken=AlxN&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A125693684%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1485204510518%2Ctas%3Aaustin">Austin Edwards</a></li>
-                <li><a href="https://www.linkedin.com/in/bzhawaii?authType=NAME_SEARCH&authToken=ydSX&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A452545715%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1485204541744%2Ctas%3Arichard">Richard Beese</a></li>
-                <li><a href="https://www.linkedin.com/in/william-velarde?trk=nav_responsive_tab_profile_pic">William Velarde</a></li>
-            </ul>
-        </div>
-    </footer>
+    </div>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
     <script type="text/javascript" src="index2.js"></script>
 </body>
 
