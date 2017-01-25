@@ -1,5 +1,7 @@
 ##TEAM AWTR
 
+The purpose of this app is to allow users to link with their travel buddies so that they can plan joint events with minimal conflicts.  The user can enter their name and other information and even choose a colored otter to represent them.  The user can then set up groups and invite other people into their group.  They can then choose one or more events and have them loaded into a schedule of events.  Other members can then see all the events in one location and even modify them as they see fit.  This app allows many people to communicate with each other in a very efficient manner.  It allows them to maximize their vacation enjoyment by allowing them to cut down on the planning and bickering that usually accompanies planning group trips.
+
 for DB team needs to
 createdb awtr_library
 knex migrate:latest
@@ -25,7 +27,7 @@ knex seed:run
 ![Landing Page](./assets/awtrApp.png)
 
 ##Project Description:
-    We are creating an asynchronous app that will allow family members to log in and create groups to coordinate their activities through a shared timetable.  
+* We are creating an asynchronous app that will allow family members to log in and create groups to coordinate their activities through a shared timetable.  
 * We are creating an app that will help groups decide on activities/schedule to partake in while traveling on vacation.
 * Each user will be able to add, remove, and vote on activities.  Other users in the same group will be able to vote on all of groups stored activities.
 * All users will be able to see the calendar of events.
@@ -48,6 +50,7 @@ knex seed:run
 
 ##Technologies:
 * Node
+* Agile and CRUD
 * AJAX
 * Express
 * GitHUB
