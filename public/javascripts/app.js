@@ -78,6 +78,8 @@ $( document ).ready(function(){
     if (data.username !==""&&data.password !==""&&data.confirmpassword===data.password&&
         data.firstname !==""&&data.lastname !==""&&data.email !==""){
       var dataUp = data;
+
+
       console.log("this is dataUp");
       console.log(dataUp);
       console.log("this is firstname");

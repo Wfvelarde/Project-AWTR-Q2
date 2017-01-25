@@ -11,9 +11,9 @@ module.exports = {
         first_name: obj.firstname,
         last_name: obj.lastname,
         phone_number: obj.phonenumber,
-        // email: obj.email,
-        // username: obj.username,
-        // password: obj.password
+        email: obj.email,
+        username: obj.username,
+        password: obj.password
       })   //this closes update
       .finally(function() {
         knex.destroy();
