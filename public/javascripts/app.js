@@ -32,7 +32,14 @@ $( document ).ready(function(){
     }
     if (data.username !==""&&data.password !==""){
       var dataIn = data;
-      console.log(dataIn);
+      console.log("this is dataIn ", dataIn);
+
+
+    $.post('/verify', dataIn, function(data){
+      console.log("this is data post", data);
+
+    })
+
 
     }
   }
