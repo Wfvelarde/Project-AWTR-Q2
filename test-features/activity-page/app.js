@@ -2,6 +2,7 @@ $(function(){
   var time;
   var act;
   createActivity();
+  addTrip();
 
 function createActivity(){
   $("#activity").click(function(){
@@ -64,6 +65,7 @@ function sortButtons($buttons){
     }
 
     $(".buttonAct").on("click", function(){
+    event.preventDefault();
     var act = $(this).find("h4").attr("id");
     var timeVal=$(this).find("h4").attr("value");
     activityEdit(act, timeVal);
@@ -101,6 +103,7 @@ function timeSet(time){
 function activityEdit(act, timeVal){
     var actID = actionID(act);
     $("#"+actID).click(function(){
+      event.preventDefault();
       var edit = $("#"+actID+"edit")[0].childElementCount;
       if (actID!=="inputform" && timeVal!=="inputform" && edit < 1){
         $(".editform").remove();
@@ -113,15 +116,33 @@ function activityEdit(act, timeVal){
         var editAct = $("#editact").val();
           if (editTime !== timeVal ||editAct !== act ) {
             var removeItem=this;
-            console.log(this)
             $(this).parent().remove();
             activityButton(editAct,editTime);
             activityEdit(editAct,editTime);
           }
         $("#"+actID+"form").remove();
       }
+    });
+  }
 
+  function addTrip(){
+    $("#addtrip").click(function(){
+      event.preventDefault();
+      var tripname = $("#tripname").val();
+      $("#triplist").append("<li id = '"+tripname+"'><h6 id= '"+tripname+
+      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h6></li>");
+      var tripLocation = $("#location").val();
+      tripMap(tripLocation, tripname);
+      $("#tripname").val("");
+      $("#location").val("");
 
+    });
+  }
+
+  function tripMap(place, tripID){
+    $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
+      var googleTown = town.results[0].formatted_address;
+      $("#"+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
     });
   }
 
