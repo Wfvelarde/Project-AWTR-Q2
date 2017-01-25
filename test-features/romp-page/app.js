@@ -31,10 +31,52 @@ function createActivity(){
 
 function activityButton(act,time){
   var settime = timeSet(time);
+  var actID = actionID(act);
   $("#activity-form").append(
-    "<h5 value= "+time+" id='"+act+"' class='waves-effect waves-orange btn-flat'>"+
-    settime+"  "+act+"</h5><div id= 'actbreak'><br></div><div id = '"+act+"edit' value = "+1+"></div>"
+    "<div class = 'buttonAct' value="+time+"><h4 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat'>"+
+    settime+"  "+act+"</h4><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
   );
+
+  var $buttons = $(".buttonAct");
+  var child = $buttons[0].innerHTML;
+
+  if($buttons.length>1){
+    sortButtons($buttons);
+
+  }
+
+
+  }
+
+function sortButtons($buttons){
+    $(".buttonAct").remove();
+    $buttons.sort(function(a,b){
+      if(a.innerHTML.substring(11,16) < b.innerHTML.substring(11,16))
+        return -1;
+      if(a.innerHTML.substring(11,16) > b.innerHTML.substring(11,16))
+        return 1;
+      return 0;
+    });
+    console.log($buttons);
+
+    for (var i = 0; i < $buttons.length; i++) {
+      $("#activity-form").append($buttons[i].outerHTML);
+    }
+
+    $(".buttonAct").on("click", function(){
+    var act = $(this).find("h4").attr("id");
+    var timeVal=$(this).find("h4").attr("value");
+    activityEdit(act, timeVal);
+    });
+
+}
+
+
+function actionID(act){
+    for(var i = 0; i < act.length; i++) {
+     act = act.replace(" ", "_");
+    }
+    return act;
 }
 
 function timeSet(time){
@@ -50,27 +92,29 @@ function timeSet(time){
     }
     settime = hour+time[2]+time[3]+time[4]+" AM";
   }
-  return settime
+  return settime;
 }
 
 
-function activityEdit(actID, timeVal){
-    console.log("Edit Function Working");
+
+
+function activityEdit(act, timeVal){
+    var actID = actionID(act);
     $("#"+actID).click(function(){
-      console.log("edit button  working");
       var edit = $("#"+actID+"edit")[0].childElementCount;
       if (actID!=="inputform" && timeVal!=="inputform" && edit < 1){
-        $("#"+actID+"edit").append("<form id = '"+actID+"form' action='action_page.php'>"+
+        $(".editform").remove();
+        $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
         "Time:<br><input type='time' name='time' id = 'edittime' value="+timeVal+
         ">Activity:<br><input type='text' id ='editact' "+
-        "name='act' value="+actID+"></form> ");
+        "name='act' value='"+act+"'></form> ");
       }else if(edit >= 1){
         var editTime = $("#edittime").val();
         var editAct = $("#editact").val();
-          if (editTime !== timeVal ||editAct !== actID ) {
-            $("#"+actID).remove();
-            $("#"+actID+"edit").remove();
-            $("#actbreak").remove();
+          if (editTime !== timeVal ||editAct !== act ) {
+            var removeItem=this;
+            console.log(this)
+            $(this).parent().remove();
             activityButton(editAct,editTime);
             activityEdit(editAct,editTime);
           }
@@ -80,6 +124,5 @@ function activityEdit(actID, timeVal){
 
     });
   }
-
 
 });
