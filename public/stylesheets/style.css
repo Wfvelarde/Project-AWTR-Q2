@@ -254,8 +254,52 @@ font-family: 'Lobster Two', cursive;*/
   height: 100px;
 }
 
-
 #otter1 {
+  width: 30%;
+  height: 70px;
+  left:25%;
+  top:-20%;
+  position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  /*animation-name: example;
+  animation-duration: 4s;*/
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   { left:-150%; top:0%;}
+  100% {left:25%; top:0%;}
+}
+
+#otter2 {
+  width: 30%;
+  height: 70px;
+  left:18%;
+  top:-20%;
+  position: relative;
+  -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2.1s; /* Safari 4.0 - 8.0 */
+  /*animation-name: example;
+  animation-duration: 4s;*/
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes otter2 {
+  0%   {left:150%; top:0%;}
+  100% {left:18%; top:0%;}
+}
+
+#title{
+  padding-left: 15%;
+  font-size: 20px;
+  padding-top: 10%;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 1.8s;
+}
+
+@media screen and (max-width:600px){
+  #otter1 {
     width: 70%;
     height: 70px;
     left:-10%;
@@ -265,15 +309,15 @@ font-family: 'Lobster Two', cursive;*/
     -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
     /*animation-name: example;
     animation-duration: 4s;*/
-}
+  }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
     0%   { left:-150%; top:-20%;}
     100% {left:-10%; top:-20%;}
-}
+  }
 
-#otter2 {
+  #otter2 {
     width: 70%;
     height: 70px;
     left:40%;
@@ -283,19 +327,20 @@ font-family: 'Lobster Two', cursive;*/
     -webkit-animation-duration: 2.1s; /* Safari 4.0 - 8.0 */
     /*animation-name: example;
     animation-duration: 4s;*/
-}
+  }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes otter2 {
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes otter2 {
     0%   {left:150%; top:-20%;}
     100% {left:40%; top:-20%;}
-}
+  }
 
-#title{
-  padding-left: 15%;
-  font-size: 50px;
-  padding-top: 10%;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-delay: 1.8s;
-  font-family: Lobster;
+  #title{
+    padding-left: 15%;
+    font-size: 50px;
+    padding-top: 10%;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 1.8s;
+  }
+
 }
