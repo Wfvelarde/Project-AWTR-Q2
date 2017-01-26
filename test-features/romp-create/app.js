@@ -1,4 +1,4 @@
-$(function(){
+$(function(){  //this opens romp-create function
 
   $("#romp-create").click(function(){
   event.preventDefault();
@@ -13,7 +13,14 @@ $(function(){
   var members= $('#members').val();
   $("#romp-select").append("<option value = '"+romp +"' id= '"+romp+
   "'>"+romp+"</option>");
-}
-});
 
-});
+
+  $.post('/romps', variableForData, function(data) {   ///need to change the variableForData name
+    console.log(data);
+  })   //this closes post romps
+
+
+}   //this closes else
+});   //this closes click function
+
+});   //this closes function romp-create
