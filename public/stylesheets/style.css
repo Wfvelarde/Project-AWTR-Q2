@@ -167,7 +167,6 @@ font-family: 'Lobster Two', cursive;*/
     background-color: #66cccc;
     height: 80vh;
     width: 100%;
-    align-items: center;
     justify-content: center;
   }
 
@@ -175,6 +174,7 @@ font-family: 'Lobster Two', cursive;*/
     width:auto;
     height: auto;
     display: flex;
+    margin-right: 20%;
   }
 
   .awtrLinkButton {
@@ -185,7 +185,7 @@ font-family: 'Lobster Two', cursive;*/
     color: grey;
     opacity: 50% !important;
     height: auto;
-    width: auto;
+    width: 70vw;
     border: 1px solid;
     justify-content: center;
     border-radius: 2vh;
@@ -304,7 +304,7 @@ font-family: 'Lobster Two', cursive;*/
   #otter1 {
     width: 70%;
     height: 70px;
-    left:-10%;
+    left:0%;
     top:-20%;
     position: relative;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
@@ -316,13 +316,13 @@ font-family: 'Lobster Two', cursive;*/
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes example {
     0%   { left:-150%; top:-20%;}
-    100% {left:-10%; top:-20%;}
+    100% {left:0%; top:-20%;}
   }
 
   #otter2 {
     width: 70%;
     height: 70px;
-    left:40%;
+    left:-10%;
     top:0%;
     position: relative;
     -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
@@ -334,7 +334,7 @@ font-family: 'Lobster Two', cursive;*/
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes otter2 {
     0%   {left:150%; top:0%;}
-    100% {left:40%; top:0%;}
+    100% {left:-10%; top:0%;}
   }
 
   #title{
@@ -345,3 +345,15 @@ font-family: 'Lobster Two', cursive;*/
     -webkit-animation-delay: 1.8s;
   }
 }
+
+.buddies {
+  display: flex;
+}
+
+.awtrBox{
+  height: 50%;
+  margin-top: 35%;
+}
+
+
+

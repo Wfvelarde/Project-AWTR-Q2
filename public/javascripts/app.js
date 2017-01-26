@@ -296,22 +296,34 @@ function activityEdit(act, timeVal){
   function addTrip(){
     $("#addtrip").click(function(){
       event.preventDefault();
-      var tripname = $("#tripname").val();
-      $("#triplist").append("<li id = '"+tripname+"'><h3 id= '"+tripname+
-      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h3></li>");
-      var tripLocation = $("#location").val();
-      tripMap(tripLocation, tripname);
-      $("#tripname").val("");
-      $("#location").val("");
+      console.log($("#tripform")[0].innerText)
+      if ($("#tripform")[0].innerText===""){
+        console.log("no form")
+        $("#tripform").append("Trip Name:<br><input type='name' name='trip' id = 'tripname' value=''>"+
+        "<br>Trip Location:<br><input type='name' name='location' id = 'location' value=''>"+
+        "<br>Trip Date:<br><input type='date' name='date' id = 'date' value=''>");
+      }else{
+        var tripname = $("#tripname").val();
+        var tripLocation = $("#location").val();
+        var tripDate = $("#date").val();
+        console.log(tripDate);
+        $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
+        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
+        tripMap(tripLocation, tripname, tripDate);
+        $("#tripform").html("");
+      }
+
 
     });
   }
 
-  function tripMap(place, tripID){
+  function tripMap(place, tripID, dateID){
     $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
       var googleTown = town.results[0].formatted_address;
-      $("#"+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = './images/gps.png' style = 'width:17.5px;'></a>");
+      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
     });
   }
+
+  
 
 })
