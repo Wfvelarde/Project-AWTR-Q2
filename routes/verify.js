@@ -22,9 +22,9 @@ router.post('/', function(req, res, next){
       var hashPw = result[0].password; //NOW RIGHT!!
       console.log("this is rawPw", rawPw);
       console.log("this is hashPw", hashPw);
-      bcrypt.compare(rawPw, hashPw, function(err, result){
+      bcrypt.compare(rawPw, hashPw, function(err, result2){
         console.log("we are in bcrypt");
-        if (result) {
+        if (result2) {
           //go to pg 2
           res.send({});
 
