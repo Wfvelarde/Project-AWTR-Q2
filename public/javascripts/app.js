@@ -9,42 +9,51 @@ $( document ).ready(function(){
 
 
 
+
   $("#signin").click(function(){
-    event.preventDefault();
     if($("#signin-form").html()===""){
-    $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
-    "Username:<input type='text' name='username' id = 'username' value="+
-    "><p>Password:</p><input type='password' id ='password' "+
-    "name='password' value=''></form> ");
-    if($("#signup-form").html()!==""){
-    $("#signup-form").html('');
+    signIn("","");
+    }else{
+    signIn($("#username").val(),$("#password").val());
     }
-  }else{
-    var data = $("#form-in").serializeArray().reduce(function(obj,item){
-      obj[item.name]=item.value;
-      return obj;
-    },{});
-    if (data.password ===""){
-      $("#password").attr("placeholder", "Please provide password");
-    }
-    if(data.username ===""){
-      $("#username").attr("placeholder", "Please provide username");
-    }
-    if (data.username !==""&&data.password !==""){
-      var dataIn = data;
-      console.log("this is dataIn ", dataIn);
-
-
-    $.post('/verify', dataIn, function(data){
-      console.log("this is data post", data);
-      window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
-
-    })
-
-
-    }
-  }
   });
+
+    function signIn(username,password){
+      event.preventDefault();
+      if($("#signin-form").html()===""){
+      $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
+      "Username:<input type='text' name='username' id = 'username' value="+username+
+      "><p>Password:</p><input type='password' id ='password' "+
+      "name='password' value="+password+"></form> ");
+      if($("#signup-form").html()!==""){
+      $("#signup-form").html('');
+      }
+    }else{
+      var data = $("#form-in").serializeArray().reduce(function(obj,item){
+        obj[item.name]=item.value;
+        return obj;
+      },{});
+      if (data.password ===""){
+        $("#password").attr("placeholder", "Please provide password");
+      }
+      if(data.username ===""){
+        $("#username").attr("placeholder", "Please provide username");
+      }
+      if (data.username !==""&&data.password !==""){
+        var dataIn = data;
+        console.log("this is dataIn ", dataIn);
+      $.post('/verify', dataIn, function(data){
+        console.log("this is data post", data);
+        window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
+
+      })
+
+
+      }
+    }
+    }
+
+
 
   $("#signup").click(function(){
     event.preventDefault();
@@ -86,7 +95,6 @@ $( document ).ready(function(){
     if (data.username !==""&&data.password !==""&&data.confirmpassword===data.password&&
         data.firstname !==""&&data.lastname !==""&&data.email !==""){
       var dataUp = data;
-
       console.log("this is dataUp");
       console.log(dataUp);
       console.log("this is firstname");
@@ -96,6 +104,7 @@ $( document ).ready(function(){
       console.log(data);
     })
 
+    signIn(dataUp.username, dataUp.password);
 
 
     }
@@ -158,7 +167,10 @@ addOtter(romp);
 
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
-      var rompName = romp;
+      var rompName ={
+        name: romp
+      };
+      console.log("this is the stupid rompName", rompName);
 //romp is only a string
       $.post('/romps', rompName, function(data) {
         console.log(data);
@@ -194,14 +206,8 @@ function createActivity(){
       event.preventDefault();
       time = $('#time').val();
       act = $('#act').val();
-      var timeAct = {
-        timeOfAct: time,
-        actName: act
-      }
 
-      $.post('/activity', timeAct, function(data) {
-        console.log(data)
-      });
+
 
         if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
@@ -216,6 +222,13 @@ function createActivity(){
         }else{
                time = $('#time').val();
                act = $('#act').val();
+               var timeAct = {
+                 timeOfAct: time,
+                 actName: act
+               };
+             $.post('/activities', timeAct, function(data) {
+               console.log(data);
+             });
           $("#inputform").remove();
         activityButton(act,time);
         activityEdit(act,time);
@@ -345,6 +358,16 @@ function activityEdit(act, timeVal){
         var tripLocation = $("#location").val();
         var tripDate = $("#date").val();
         console.log(tripDate);
+
+        var tripObj = {
+          name: tripname,
+          location: tripLocation,
+          date: tripDate
+        }
+        $.post('/trips', tripObj, function(data) {
+          console.log(data);
+        });
+
         $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
         "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
         tripMap(tripLocation, tripname, tripDate);
@@ -358,7 +381,7 @@ function activityEdit(act, timeVal){
   function tripMap(place, tripID, dateID){
     $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
       var googleTown = town.results[0].formatted_address;
-      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
+      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:30px;'></a>");
     });
   }
 

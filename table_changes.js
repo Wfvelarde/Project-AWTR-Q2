@@ -11,25 +11,23 @@ module.exports = {
       .insert({
         first_name: obj.firstname,
         last_name: obj.lastname,
-        phone_number: obj.phonenumber,
         email: obj.email,
         username: obj.username,
         password: obj.password
-      })   //this closes update
+      })   //this closes insert
       .finally(function() {
-        knex.destroy();
-      });   //this closes finally
+      });
+
   },   //this closes members_update
 
 
     romps_create: function(rompName) {  //rompName is a string
-      // knex('romps')
-      //   .insert({
-      //     name: rompName //maybe this
-      //   })   //this closes update
-      //   .finally(function() {
-      //     knex.destroy();
-      //   });  //this closes finally
+      knex('romps')
+        .insert({
+          name: rompName.name //maybe this
+        })   //this closes update
+        .finally(function() {
+        });
     },   //this closes romps_create
 
     members_romps_join: function() {
@@ -39,20 +37,18 @@ module.exports = {
       //     member_id: obj.memberID
       //   })   //this closes update
       //   .finally(function() {
-      //     knex.destroy();
       //   });   //this closes finally
     },   //this closes members_romps_join
 
 
-    activity_create: function() {
-      // knex('activity')
-      //   .insert({
-      //     name: obj.name
-      //     time: obj.time
-      //   })   //this closes insert
-      //   .finally(function() {
-      //     knex.destroy();
-      //   });   //this closes finally
+    activity_create: function(obj) {
+      knex('activity')
+        .insert({
+          name: obj.actName,
+          time: obj.timeOfAct
+        })   //this closes insert
+        .finally(function() {
+        });
     },   //this closes activity_create
 
     mod_activity: function() {
@@ -63,24 +59,22 @@ module.exports = {
       //     time: obj.time
       //   })  //this closes update
       //   .finally(function() {
-      //     knex.destroy();
       //   });   //this closes finally
     },   //this closes mod_activity_create
 
 
-    trip_create: function() {
-      // knex('schedule')
-      //   .insert({
-      //     name: obj.name,
-      //     date: obj.date,
-      //     location: obj.location,
-      //     romps_id: obj.rompsID,
-      //     activity_id: obj.activityID
-      //   })   //thiscloses insert
-      //   .finally(function() {
-      //     knex.destry();
-      //   });   //this closes finally
-    },   //this closes schedule_create
+    trip_create: function(obj) {
+      knex('trip')
+        .insert({
+          name: obj.name,
+          date: obj.date,
+          location: obj.location,
+          romps_id: obj.rompsID,
+          activity_id: obj.activityID
+        })   //thiscloses insert
+        .finally(function() {
+        });   //this closes finally
+    }   //this closes schedule_create
 
 
 
