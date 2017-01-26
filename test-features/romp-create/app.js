@@ -9,8 +9,6 @@ function createRomp(i){
         var romp = $("#rompname").val();
         if (romp!==""){
           rompForm(romp);
-          addOtter();
-          confirm(romp);
       }
     });
 }
@@ -28,18 +26,24 @@ $("#form").remove();
 $(".button").append("<a id = 'addmember' class='waves-effect"+
 " waves-teal btn-flat'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
 " waves-teal btn-flat'>Confirm Romp</a>");
+addOtter(romp);
+
 }
 
-  function addOtter(){
+  function addOtter(romp){
+    var otterArr=[];
     $("#addmember").click(function(){
       event.preventDefault();
         var otter = $("#membername").val();
         $("#memberlist").append(  "<li>"+otter+"</li>");
         $("#membername").val("");
+        otterArr.push(otter);
       });
+      confirm(romp, otterArr);
+
   }
 
-  function confirm(romp){
+  function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
       event.preventDefault();
       $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
