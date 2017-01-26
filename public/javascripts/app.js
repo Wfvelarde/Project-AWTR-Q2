@@ -322,8 +322,8 @@ function activityEdit(act, timeVal){
 
         $(".editform").remove();
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
-        "<h3>Time:</h3><br><input style= 'font-size: 350%;' type='time' name='time' id = 'edittime' value="+timeVal+
-        "><h3>Activity:</h3><br><input style= 'font-size: 350%;' type='text' id ='editact' "+
+        "<h3>Time:</h3><br><input style='font-size: 350%; background-color: white;' type='time' name='time' id = 'edittime' value="+timeVal+
+        "><h3>Activity:</h3><br><input style='font-size: 350%; background-color: white;' type='text' id ='editact' "+
         "name='act' value='"+act+"'></form> ");
       }else if(edit >= 1){
         var editTime = $("#edittime").val();
@@ -342,18 +342,22 @@ function activityEdit(act, timeVal){
   function addTrip(){
     $("#addtrip").click(function(){
       event.preventDefault();
-
-      var tripname = $("#tripname").val();
-      $("#triplist").append("<li id = '"+tripname+"'><h6 id= '"+tripname+
-      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h6></li>");
-      var tripLocation = $("#location").val();
-//adding trips routes
-      // need variables for activity and romp
-
-
-      tripMap(tripLocation, tripname);
-      $("#tripname").val("");
-      $("#location").val("");
+      console.log($("#tripform")[0].innerText)
+      if ($("#tripform")[0].innerText===""){
+        console.log("no form")
+        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value='' style='font-size: 350%; background-color: white;'>"+
+        "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value='' style='font-size: 350%; background-color: white;'>"+
+        "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value='' style='font-size: 350%; background-color: white;'>");
+      }else{
+        var tripname = $("#tripname").val();
+        var tripLocation = $("#location").val();
+        var tripDate = $("#date").val();
+        console.log(tripDate);
+        $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
+        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
+        tripMap(tripLocation, tripname, tripDate);
+        $("#tripform").html("");
+      }
 
 
     });
@@ -362,7 +366,7 @@ function activityEdit(act, timeVal){
   function tripMap(place, tripID, dateID){
     $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
       var googleTown = town.results[0].formatted_address;
-      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = '/images/gps.png' style = 'width:30px;'></a>");
+      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
     });
   }
 
