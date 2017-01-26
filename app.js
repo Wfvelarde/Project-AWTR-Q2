@@ -13,7 +13,7 @@ var mem_romps_join = require('./routes/mem_romps_join');
 var modActivity = require('./routes/modActivity');
 var verify = require('./routes/verify');
 var trips = require('./routes/trips');
-var activity = require('./routes/activity')
+var activities = require('./routes/activities');
 
 
 var app = express();
@@ -38,7 +38,7 @@ app.use('/mem_romps_join', mem_romps_join);
 app.use('/modActivity', modActivity);
 app.use('/verify', verify);
 app.use('/trips', trips);
-app.use('/activity', activity);
+app.use('/activities', activities);
 
 
 
