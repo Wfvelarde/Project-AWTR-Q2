@@ -289,6 +289,17 @@ function activityEdit(act, timeVal){
       event.preventDefault();
       var edit = $("#"+actID+"edit")[0].childElementCount;
       if (actID!=="inputform" && timeVal!=="inputform" && edit < 1){
+//modify activity table
+    var actTime = {
+      // oldAct: oldActID
+      act: actID,
+      time: timeVal
+    } //this closes object actTime
+    $.post('/modActivity', actTime, function(data) {
+      console.log(data);
+    })
+
+
         $(".editform").remove();
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
         "Time:<br><input type='time' name='time' id = 'edittime' value="+timeVal+

@@ -55,6 +55,19 @@ module.exports = {
         });   //this closes finally
     },   //this closes activity_create
 
+    mod_activity: function() {
+      knex('activity')
+      .where("name", obj.oldActID)  //this won't work because if the name changes it won't match
+        .update({
+          name: obj.act
+          time: obj.time
+        })  //this closes update
+        .finally(function() {
+          knex.destroy();
+        });   //this closes finally
+    },   //this closes mod_activity_create
+
+
     trip_create: function() {
       knex('schedule')
         .insert({
