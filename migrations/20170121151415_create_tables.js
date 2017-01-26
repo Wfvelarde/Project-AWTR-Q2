@@ -20,10 +20,11 @@ exports.up = function(knex, Promise) {
     table.integer('romps_id').references("romps", "id");
     table.integer('members_id').references("members", "id");
   })
-  .createTable('schedule', function(table){
+  .createTable('trip', function(table){
     table.increments();
     table.string('name');
-    table.string('timeslot');
+    table.string('location');
+    table.string('activity_id').references("activity","id");
     table.integer('romps_id').references("romps", "id");
   })
   .createTable('time_slot', function(table){
@@ -41,6 +42,7 @@ exports.up = function(knex, Promise) {
   .createTable('activity', function(table){
     table.increments();
     table.string('name');
+    table.string('time');
   })
 
 

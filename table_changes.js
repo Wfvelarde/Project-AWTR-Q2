@@ -43,52 +43,32 @@ module.exports = {
         });   //this closes finally
     },   //this closes members_romps_join
 
-    time_slot_create: function() {
-      knex('time_slot')
-        .insert({
-          name: obj.name,
-          time: obj.time,
-          schedule_id: obj.scheduleID
-        })   //this closes insert
-        .finally(function() {
-          knex.destry();
-        });   //this closes finally
-    },   //this closes time_slot_create
-
 
     activity_create: function() {
       knex('activity')
         .insert({
           name: obj.name
+          time: obj.time
         })   //this closes insert
         .finally(function() {
           knex.destroy();
         });   //this closes finally
     },   //this closes activity_create
 
-    schedule_create: function() {
+    trip_create: function() {
       knex('schedule')
         .insert({
           name: obj.name,
-          timeslot: obj.time,
-          romps_id: obj.rompsID
+          location: obj.location,
+          romps_id: obj.rompsID,
+          activity_id: obj.activityID
         })   //thiscloses insert
         .finally(function() {
           knex.destry();
         });   //this closes finally
     },   //this closes schedule_create
 
-    vote_join_create: function() {
-      knex('vote_join')
-        .insert({
-          name: obj.name,
-          activity_id: obj.activityID,
-          time_slot_id: obj.timeslotID
-        })   //this closes insert
-        .finally(function() {
-          knex.destry();
-        });   //this closes finally
-    }   //this closes vote_join
+
 
 
 
