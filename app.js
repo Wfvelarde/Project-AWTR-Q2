@@ -8,8 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var members = require('./routes/members');
-
-// var romps = require('./routes/romps');
+var romps = require('./routes/romps');
+var mem_romps_join = require('./routes/mem_romps_join');
 // var romps = require('./routes/activity');
 var verify = require('./routes/verify');
 
@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/members', members);
-
-// app.use('/romps', romps);
+app.use('/romps', romps);
+app.use('/mem_romps_join', mem_romps_join);
 // app.use('/activity', activity);
 app.use('/verify', verify);
 

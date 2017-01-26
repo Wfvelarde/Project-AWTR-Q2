@@ -22,11 +22,10 @@ module.exports = {
   },   //this closes members_update
 
 
-
-    romps_create: function() {
+    romps_create: function(rompName) {  //rompName is a string
       knex('romps')
-        .update({
-          name:obj.name
+        .insert({
+          name: rompName //maybe this
         })   //this closes update
         .finally(function() {
           knex.destroy();
@@ -36,7 +35,6 @@ module.exports = {
     members_romps_join: function() {
       knex('romps_members_join')
         .insert({
-          name: obj.name,
           romps_id: obj.rompID,
           member_id: obj.memberID
         })   //this closes update

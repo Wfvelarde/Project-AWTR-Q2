@@ -143,10 +143,26 @@ addOtter(romp);
         otterArr.push(otter);
       });
       confirm(romp, otterArr)
-  }
+      //Austin not sure if this should be here
+      for(var i=0;i<otterArr.length; i++) {
+        var newMember = {
+            name: romp,  //check to see if correct syntax
+            member: otterArr[i]   //this only works if the member is name and not id
+        }; //this closes newMember object
+        $.post('/mem_romps_join', newMember, function(data) {
+          console.log(data);
+        }) //this closes post
+      } //this closes for loop
+  }   //this closes function addOtter
 
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
+      var rompName = romp;
+//romp is only a string
+      $.post('/romps', rompName, function(data) {
+        console.log(data);
+      })
+
       event.preventDefault();
       $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
       " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a><br>");
