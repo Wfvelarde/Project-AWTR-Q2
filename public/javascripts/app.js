@@ -321,10 +321,10 @@ function activityEdit(act, timeVal){
   function tripMap(place, tripID, dateID){
     $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
       var googleTown = town.results[0].formatted_address;
-      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
+      $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = '/images/gps.png' style = 'width:30px;'></a>");
     });
   }
 
-  
+
 
 })
