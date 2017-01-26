@@ -17,7 +17,7 @@ module.exports = {
         password: obj.password
       })   //this closes update
       .finally(function() {
-        knex.destroy();
+        // knex.destroy();
       });   //this closes finally
   },   //this closes members_update
 
