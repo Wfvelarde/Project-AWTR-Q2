@@ -171,38 +171,38 @@ var time;
   createActivity();
   addTrip();
 
-function createActivity(){
-  $("#activity").click(function(){
-      event.preventDefault();
-      time = $('#time').val();
-      act = $('#act').val();
-        if($("#activity-form").html()===""||time===undefined || act === undefined){
-          $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-          "Time:<br><input type='time' name='time' id = 'time' value=''"+
-          ">Activity:<br><input type='text' id ='act' "+
-          "name='act' value=''></form> ");
-           time = $('#time').val();
-           act = $('#act').val();
-         }else if(time==="" || act === "" ){
-          $("#activity-form").append("");
-          $("#inputform").remove();
-        }else{
+  function createActivity(){
+    $("#activity").click(function(){
+        event.preventDefault();
+        time = $('#time').val();
+        act = $('#act').val();
+          if($("#activity-form").html()===""||time===undefined || act === undefined){
+            $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
+            "<h3>Time:</h3><br><input style= 'font-size: 350%;' type='time' name='time' id = 'time' value=''"+
+            "><h3>Activity:</h3><br><input style= 'font-size: 350%;' type='text' id ='act' "+
+            "name='act' value=''></form> ");
              time = $('#time').val();
              act = $('#act').val();
-        $("#inputform").remove();
-      activityButton(act,time);
-      activityEdit(act,time);
-    }
-  });
-}
+           }else if(time==="" || act === "" ){
+            $("#activity-form").append("");
+            $("#inputform").remove();
+          }else{
+               time = $('#time').val();
+               act = $('#act').val();
+          $("#inputform").remove();
+        activityButton(act,time);
+        activityEdit(act,time);
+      }
+    });
+  }
 
 
 function activityButton(act,time){
   var settime = timeSet(time);
   var actID = actionID(act);
   $("#activity-form").append(
-    "<div class = 'buttonAct' value="+time+"><h4 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat'>"+
-    settime+"  "+act+"</h4><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
+    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat' style= 'height: 300%;' >"+
+    settime+"  "+act+"</h1><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
   );
 
   var $buttons = $(".buttonAct");
@@ -216,29 +216,30 @@ function activityButton(act,time){
 
   }
 
-function sortButtons($buttons){
-    $(".buttonAct").remove();
-    $buttons.sort(function(a,b){
-      if(a.innerHTML.substring(11,16) < b.innerHTML.substring(11,16))
-        return -1;
-      if(a.innerHTML.substring(11,16) > b.innerHTML.substring(11,16))
-        return 1;
-      return 0;
-    });
-    console.log($buttons);
+  function sortButtons($buttons){
+      $(".buttonAct").remove();
+      $buttons.sort(function(a,b){
+        if(a.innerHTML.substring(11,16) < b.innerHTML.substring(11,16))
+          return -1;
+        if(a.innerHTML.substring(11,16) > b.innerHTML.substring(11,16))
+          return 1;
+        return 0;
+      });
+      console.log($buttons);
 
-    for (var i = 0; i < $buttons.length; i++) {
-      $("#activity-form").append($buttons[i].outerHTML);
-    }
+      for (var i = 0; i < $buttons.length; i++) {
+        $("#activity-form").append($buttons[i].outerHTML);
+      }
 
-    $(".buttonAct").on("click", function(){
-    event.preventDefault();
-    var act = $(this).find("h4").attr("id");
-    var timeVal=$(this).find("h4").attr("value");
-    activityEdit(act, timeVal);
-    });
+      $(".buttonAct").on("click", function(){
+      event.preventDefault();
+      var act = $(this).find("h1").attr("id");
+      var timeVal=$(this).find("h1").attr("value");
+      activityEdit(act, timeVal);
+      });
 
-}
+  }
+
 
 
 function actionID(act){
@@ -275,8 +276,8 @@ function activityEdit(act, timeVal){
       if (actID!=="inputform" && timeVal!=="inputform" && edit < 1){
         $(".editform").remove();
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
-        "Time:<br><input type='time' name='time' id = 'edittime' value="+timeVal+
-        ">Activity:<br><input type='text' id ='editact' "+
+        "<h3>Time:</h3><br><input style= 'font-size: 350%;' type='time' name='time' id = 'edittime' value="+timeVal+
+        "><h3>Activity:</h3><br><input style= 'font-size: 350%;' type='text' id ='editact' "+
         "name='act' value='"+act+"'></form> ");
       }else if(edit >= 1){
         var editTime = $("#edittime").val();
@@ -296,8 +297,8 @@ function activityEdit(act, timeVal){
     $("#addtrip").click(function(){
       event.preventDefault();
       var tripname = $("#tripname").val();
-      $("#triplist").append("<li id = '"+tripname+"'><h6 id= '"+tripname+
-      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h6></li>");
+      $("#triplist").append("<li id = '"+tripname+"'><h3 id= '"+tripname+
+      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h3></li>");
       var tripLocation = $("#location").val();
       tripMap(tripLocation, tripname);
       $("#tripname").val("");
@@ -309,7 +310,7 @@ function activityEdit(act, timeVal){
   function tripMap(place, tripID){
     $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
       var googleTown = town.results[0].formatted_address;
-      $("#"+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'gps.png' style = 'width:17.5px;'></a>");
+      $("#"+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = './images/gps.png' style = 'width:17.5px;'></a>");
     });
   }
 
