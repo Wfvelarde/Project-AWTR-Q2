@@ -18,6 +18,7 @@ router.post('/', function(req, res, next){
     .returning("password")
     .then(function(result) {
       // console.log("this is password", password);
+      console.log(result)
       console.log("we are in the then");
       var hashPw = result[0].password; //NOW RIGHT!!
       console.log("this is rawPw", rawPw);
