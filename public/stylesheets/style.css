@@ -236,7 +236,7 @@ font-family: 'Lobster Two', cursive;*/
     color:white !important;
   }
 
-  /*.container {
+  .will-container {
   	display: flex;
   	align-items: center;
   	justify-content: space-around;
@@ -246,6 +246,22 @@ font-family: 'Lobster Two', cursive;*/
   	background-size: cover;
   }
 
-  .container {
-  	width: 100%;
-  }*/
+#tabs {
+  font-size: 250%;
+}
+
+.side-nav #form {
+  height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

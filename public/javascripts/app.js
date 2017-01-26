@@ -93,5 +93,68 @@ $( document ).ready(function(){
   }
   });
 
+// AUSTINS CODE
+
+var i=$("#romplist")[0].childNodes.length;
+createRomp(i);
+
+
+function createRomp(i){
+  $("#create-romp"+i).click(function(){
+      event.preventDefault();
+        var romp = $("#rompname").val();
+        if (romp!==""){
+          rompForm(romp);
+          addOtter();
+          confirm(romp);
+      }
+    });
+}
+
+
+function rompForm(romp){
+  console.log("rompform");
+  $("#new-romp").append("<h3>"+romp+"</h3>"+
+  "<form id='member-form'>"+
+  "<ul id='memberlist'></ul>"+"<h3>Otter name:</h3>"+
+  "<input id = 'membername' type='text' name='membername' value='' style='font-size: 350%;'><br>"+
+  "</form>");
+$("#create-romp"+i).remove();
+$("#form").remove();
+$(".button").append("<a id = 'addmember' class='waves-effect"+
+" waves-teal btn-flat' style='font-size: 300%;'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
+" waves-teal btn-flat' style='font-size: 300%;'>Confirm Romp</a>");
+}
+
+  function addOtter(){
+    $("#addmember").click(function(){
+      event.preventDefault();
+        var otter = $("#membername").val();
+        $("#memberlist").append(  "<li style='font-size: 350%;'>Otter"+ " " +otter+"</li>");
+        $("#membername").val("");
+      });
+  }
+
+  function confirm(romp){
+    $("#confirmromp").click(function(){
+      event.preventDefault();
+      $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
+      " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a><br>");
+      $(".romp-content").remove();
+      i=$("#romplist")[0].childNodes.length;
+      $("#romp-form").append("<div class='romp-content'>"+
+        "<form id='form'>"+
+          "<h3>Romp Name:</h3>"+
+          "<input id = 'rompname' type='text' name='rompname' value= '' style='font-size: 350%;'><br>"+
+        "</form>"+
+        "<div id='new-romp'></div>"+
+        "<div class='button'>"+
+          "<a id = 'create-romp"+i+"' class='waves-effect waves-teal btn-flat' style='font-size: 300%;'>Create Romp</a>"+
+        "</div>"+
+      "</div>");
+      createRomp(i);
+    });
+  }
+
 
 })
