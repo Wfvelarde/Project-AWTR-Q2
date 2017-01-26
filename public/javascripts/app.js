@@ -195,19 +195,18 @@ function createActivity(){
       time = $('#time').val();
       act = $('#act').val();
       var timeAct = {
-        timeOfAct = time,
-        actName = act
+        timeOfAct: time,
+        actName: act
       }
 
       $.post('/activity', timeAct, function(data) {
-        console.log(data);
-
-
+        console.log(data)
+      });
 
         if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-          "Time:<br><input type='time' name='time' id = 'time' value=''"+
-          ">Activity:<br><input type='text' id ='act' "+
+          "<h3>Time:</h3><br><input style='font-size: 350%; background-color: white;' type='time' name='time' id = 'time' value=''"+
+          "><h3>Activity:</h3><br><input style='font-size: 350%; background-color: white;' type='text' id ='act' "+
           "name='act' value=''></form> ");
            time = $('#time').val();
            act = $('#act').val();
@@ -215,13 +214,6 @@ function createActivity(){
           $("#activity-form").append("");
           $("#inputform").remove();
         }else{
-
-             time = $('#time').val();
-             act = $('#act').val();
-           }else if(time==="" || act === "" ){
-            $("#activity-form").append("");
-            $("#inputform").remove();
-          }else{
                time = $('#time').val();
                act = $('#act').val();
           $("#inputform").remove();
