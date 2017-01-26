@@ -17,13 +17,17 @@ router.post('/', function(req, res, next){
     .then(function(password) {
       console.log("we are in the then");
       var hashPw = password;
+      console.log("this is rawPw", rawPw);
+      console.log("this is hashPw", hashPw);
       bcrypt.compare(rawPw, hashPw, function(err, res){
         console.log("we are in bcrypt");
-        if (true){
+        if (res === true){
           //go to pg 2
-          res.redirect('https://awtr.herokuapp.com/page2');
+          res.redirect('/page2');
+          console.log("we are in true === pg2");
         } else {
           //err message
+          console.log(err);
           res.render("/error", {message: "Please enter the correct password"});
         }
       })
