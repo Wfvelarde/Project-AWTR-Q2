@@ -144,10 +144,26 @@ addOtter(romp);
         otterArr.push(otter);
       });
       confirm(romp, otterArr)
-  }
+      //Austin not sure if this should be here
+      for(var i=0;i<otterArr.length; i++) {
+        var newMember = {
+            name: romp,  //check to see if correct syntax
+            member: otterArr[i]   //this only works if the member is name and not id
+        }; //this closes newMember object
+        $.post('/mem_romps_join', newMember, function(data) {
+          console.log(data);
+        }) //this closes post
+      } //this closes for loop
+  }   //this closes function addOtter
 
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
+      var rompName = romp;
+//romp is only a string
+      $.post('/romps', rompName, function(data) {
+        console.log(data);
+      })
+
       event.preventDefault();
       $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
       " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a><br>");
@@ -172,16 +188,34 @@ var time;
   createActivity();
   addTrip();
 
-  function createActivity(){
-    $("#activity").click(function(){
-        event.preventDefault();
-        time = $('#time').val();
-        act = $('#act').val();
-          if($("#activity-form").html()===""||time===undefined || act === undefined){
-            $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-            "<h3>Time:</h3><br><input style= 'font-size: 350%;' type='time' name='time' id = 'time' value=''"+
-            "><h3>Activity:</h3><br><input style= 'font-size: 350%;' type='text' id ='act' "+
-            "name='act' value=''></form> ");
+
+function createActivity(){
+  $("#activity").click(function(){
+      event.preventDefault();
+      time = $('#time').val();
+      act = $('#act').val();
+      var timeAct = {
+        timeOfAct = time,
+        actName = act
+      }
+
+      $.post('/activity', timeAct, function(data) {
+        console.log(data);
+
+
+
+        if($("#activity-form").html()===""||time===undefined || act === undefined){
+          $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
+          "Time:<br><input type='time' name='time' id = 'time' value=''"+
+          ">Activity:<br><input type='text' id ='act' "+
+          "name='act' value=''></form> ");
+           time = $('#time').val();
+           act = $('#act').val();
+         }else if(time==="" || act === "" ){
+          $("#activity-form").append("");
+          $("#inputform").remove();
+        }else{
+
              time = $('#time').val();
              act = $('#act').val();
            }else if(time==="" || act === "" ){
@@ -275,6 +309,17 @@ function activityEdit(act, timeVal){
       event.preventDefault();
       var edit = $("#"+actID+"edit")[0].childElementCount;
       if (actID!=="inputform" && timeVal!=="inputform" && edit < 1){
+//modify activity table
+    var actTime = {
+      // oldAct: oldActID
+      act: actID,
+      time: timeVal
+    } //this closes object actTime
+    $.post('/modActivity', actTime, function(data) {
+      console.log(data);
+    })
+
+
         $(".editform").remove();
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
         "<h3>Time:</h3><br><input style= 'font-size: 350%;' type='time' name='time' id = 'edittime' value="+timeVal+
@@ -297,22 +342,18 @@ function activityEdit(act, timeVal){
   function addTrip(){
     $("#addtrip").click(function(){
       event.preventDefault();
-      console.log($("#tripform")[0].innerText)
-      if ($("#tripform")[0].innerText===""){
-        console.log("no form")
-        $("#tripform").append("Trip Name:<br><input type='name' name='trip' id = 'tripname' value=''>"+
-        "<br>Trip Location:<br><input type='name' name='location' id = 'location' value=''>"+
-        "<br>Trip Date:<br><input type='date' name='date' id = 'date' value=''>");
-      }else{
-        var tripname = $("#tripname").val();
-        var tripLocation = $("#location").val();
-        var tripDate = $("#date").val();
-        console.log(tripDate);
-        $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
-        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
-        tripMap(tripLocation, tripname, tripDate);
-        $("#tripform").html("");
-      }
+
+      var tripname = $("#tripname").val();
+      $("#triplist").append("<li id = '"+tripname+"'><h6 id= '"+tripname+
+      "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h6></li>");
+      var tripLocation = $("#location").val();
+//adding trips routes
+      // need variables for activity and romp
+
+
+      tripMap(tripLocation, tripname);
+      $("#tripname").val("");
+      $("#location").val("");
 
 
     });
