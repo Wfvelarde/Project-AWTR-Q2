@@ -1,4 +1,4 @@
-$(function(){
+$(function(){   //this opens activity function
   var i = 1;
 
   $("#activity").click(function(){
@@ -16,7 +16,11 @@ $(function(){
   $("#inputform").remove();
   $("#activity-form").append("<h5 id= '"+i+
   "' class='waves-effect waves-orange btn-flat'>"+time+"  "+act+"</h5>");
-}
-});
 
-});
+  $.post('/activity', variableForData, function(data) {   ///need to change the variableForData name
+    console.log(data);
+
+}   //this closes else
+});   //this closes click function
+
+});   //this closes function activity
