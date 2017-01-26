@@ -236,6 +236,13 @@ font-family: 'Lobster Two', cursive;*/
     color:white !important;
   }
 
+  .awtrIcon:hover {
+  /*border: 40px solid rgba(255,255,255,.1);*/
+  height:6.5vh;
+  -webkit-transition: height .5s;
+
+}
+
   .will-container {
   	display: flex;
   	align-items: center;
@@ -294,7 +301,7 @@ font-family: 'Lobster Two', cursive;*/
 #title{
   margin-top: 8em;
   font-size: 20px;
-  
+
   -webkit-animation-duration: 3s;
   -webkit-animation-delay: 1.8s;
 }
@@ -348,6 +355,3 @@ font-family: 'Lobster Two', cursive;*/
   margin-top: 35%;
   margin-left: 6%;
 }
-
-
-
