@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
     table.string('first_name');
     table.string('last_name');
     table.string('avatar');
-    table.integer('phone_number');
+    table.integer('access');
   })
   .createTable('romps', function(table){
     table.increments();
@@ -20,18 +20,15 @@ exports.up = function(knex, Promise) {
     table.integer('romps_id').references("romps", "id");
     table.integer('members_id').references("members", "id");
   })
-  .createTable('schedule', function(table){
+  .createTable('trip', function(table){
     table.increments();
     table.string('name');
-    table.string('timeslot');
+    table.string('date');
+    table.string('location');
+    table.string('activity_id').references("activity","id");
     table.integer('romps_id').references("romps", "id");
   })
-  .createTable('time_slot', function(table){
-    table.increments();
-    table.string('name');
-    table.string('time');
-    table.integer('schedule_id').references("schedule", "id");
-  })
+
   .createTable('vote_join', function(table){
     table.increments();
     table.string('name');
@@ -41,6 +38,7 @@ exports.up = function(knex, Promise) {
   .createTable('activity', function(table){
     table.increments();
     table.string('name');
+    table.string('time');
   })
 
 

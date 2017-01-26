@@ -8,12 +8,12 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var members = require('./routes/members');
-
-// var romps = require('./routes/romps');
-// var romps = require('./routes/activity');
+var romps = require('./routes/romps');
+var mem_romps_join = require('./routes/mem_romps_join');
+var modActivity = require('./routes/modActivity');
 var verify = require('./routes/verify');
-
-
+var trips = require('./routes/trips');
+var activity = require('./routes/activity')
 
 
 var app = express();
@@ -33,10 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/members', members);
-
-// app.use('/romps', romps);
-// app.use('/activity', activity);
+app.use('/romps', romps);
+app.use('/mem_romps_join', mem_romps_join);
+app.use('/modActivity', modActivity);
 app.use('/verify', verify);
+app.use('/trips', trips);
+app.use('/activity', activity);
 
 
 
