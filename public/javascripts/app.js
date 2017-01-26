@@ -192,6 +192,16 @@ function createActivity(){
       event.preventDefault();
       time = $('#time').val();
       act = $('#act').val();
+      var timeAct = {
+        timeOfAct = time,
+        actName = act
+      }
+
+      $.post('/activity', timeAct, function(data) {
+        console.log(data);
+
+
+
         if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
           "Time:<br><input type='time' name='time' id = 'time' value=''"+
@@ -326,6 +336,10 @@ function activityEdit(act, timeVal){
       $("#triplist").append("<li id = '"+tripname+"'><h6 id= '"+tripname+
       "' class='waves-effect waves-teal btn-flat'>"+tripname+"</h6></li>");
       var tripLocation = $("#location").val();
+//adding trips routes
+      // need variables for activity and romp
+
+
       tripMap(tripLocation, tripname);
       $("#tripname").val("");
       $("#location").val("");
