@@ -32,7 +32,14 @@ $( document ).ready(function(){
     }
     if (data.username !==""&&data.password !==""){
       var dataIn = data;
-      console.log(dataIn);
+      console.log("this is dataIn ", dataIn);
+
+
+    $.post('/verify', dataIn, function(data){
+      console.log("this is data post", data);
+
+    })
+
 
     }
   }
@@ -78,10 +85,7 @@ $( document ).ready(function(){
     if (data.username !==""&&data.password !==""&&data.confirmpassword===data.password&&
         data.firstname !==""&&data.lastname !==""&&data.email !==""){
       var dataUp = data;
-// this hashes password
 
-      
-      dataUp.password =
       console.log("this is dataUp");
       console.log(dataUp);
       console.log("this is firstname");
