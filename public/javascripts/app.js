@@ -37,6 +37,7 @@ $( document ).ready(function(){
 
     $.post('/verify', dataIn, function(data){
       console.log("this is data post", data);
+      window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
 
     })
 
