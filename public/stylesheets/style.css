@@ -179,10 +179,10 @@ font-family: 'Lobster Two', cursive;*/
 
   .awtrLinkButton {
     display: flex;
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.7);
     font-family: 'Cabin', sans-serif;
     -webkit-font-smoothing: antialiased;
-    color: grey;
+    color: #595959;
     opacity: 50% !important;
     height: auto;
     width: 70vw;
@@ -292,9 +292,9 @@ font-family: 'Lobster Two', cursive;*/
 }
 
 #title{
-  padding-left: 15%;
+  margin-top: 8em;
   font-size: 20px;
-  padding-top: 10%;
+  
   -webkit-animation-duration: 3s;
   -webkit-animation-delay: 1.8s;
 }
@@ -337,13 +337,6 @@ font-family: 'Lobster Two', cursive;*/
     100% {left:-10%; top:0%;}
   }
 
-  #title{
-    padding-left: 15%;
-    font-size: 50px;
-    padding-top: 10%;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-delay: 1.8s;
-  }
 }
 
 .buddies {
@@ -353,6 +346,7 @@ font-family: 'Lobster Two', cursive;*/
 .awtrBox{
   height: 50%;
   margin-top: 35%;
+  margin-left: 6%;
 }
 
 
