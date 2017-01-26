@@ -9,14 +9,14 @@ const saltRounds = 10;
 
 router.post('/', function(req, res, next){
   console.log("hello, we are in verify");
-  var rawPw = req.body;
+  var rawPw = req.body.password;
   console.log("rek dat body", req.body); //working
   knex('members')
     .where("username", req.body.username)
     .returning("password")
     .then(function(password) {
       console.log("we are in the then");
-      var hashPw = password;
+      var hashPw = password; // this is wrong. Need to grab hashed pw from the database?
       console.log("this is rawPw", rawPw);
       console.log("this is hashPw", hashPw);
       bcrypt.compare(rawPw, hashPw, function(err, res){
