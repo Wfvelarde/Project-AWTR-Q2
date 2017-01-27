@@ -162,7 +162,7 @@ function rompForm(romp){
       });
       //sends the members and romp name to the romp list
       confirm(romp, otterArr)
-      //Austin not sure if this should be here
+  //Austin not sure if this should be here
       // for(var i=0;i<otterArr.length; i++) {
       //   var newMember = {
       //       name: romp,  //check to see if correct syntax
@@ -173,9 +173,13 @@ function rompForm(romp){
       // joinArray.members_id = memID;
       //
       //
-      // $.post('/mem_romps_join', newMember, function(data) {
-      //   console.log(data);
-      // }) //this closes post
+      var newMember = {
+        rompID: 29,
+        memberID: 10
+      };
+      $.post('/mem_romps_join', newMember, function(data) {
+        console.log(data);
+      }) //this closes post
     // } //this closes for loop
   }   //this closes function addOtter
 
@@ -262,8 +266,8 @@ function createActivity(){
              });
 
              var bzsObj = {
-              bzTrip: 10,
-              bzAct: 2
+              bzTrip: 25,
+              bzAct: 14
              }
              $.post('/trip_activity_join', bzsObj, function(data) {
                console.log(data);
@@ -404,9 +408,19 @@ function addTrip(){
           location: tripLocation,
           date: tripDate
         }
+        //created row on trips table
         $.post('/trips', tripObj, function(data) {
           console.log(data);
         });
+        //created row on romp_trips table
+        var rmpTrp = {
+          rmpName: 29,
+          trpName: 25
+        };
+        $.post('/romp_trips', rmpTrp, function(data) {
+          console.log(data);
+        });
+
 
         $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
         "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");

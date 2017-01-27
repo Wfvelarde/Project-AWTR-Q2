@@ -33,11 +33,11 @@ module.exports = {
         });
     },   //this closes romps_create
 
-    members_romps_join: function() {
+    members_romps_join: function(obj) {
       knex('romps_members_join')
         .insert({
           romps_id: obj.rompID,
-          member_id: obj.memberID
+          members_id: obj.memberID
         })   //this closes update
         .finally(function() {
         });   //this closes finally
@@ -49,6 +49,16 @@ module.exports = {
         .insert({
           name: obj.actName,
           time: obj.timeOfAct
+        })   //this closes insert
+        .finally(function() {
+        });
+    },   //this closes activity_create
+
+    romps_trips_create: function(obj) {
+      knex('romps_trips')
+        .insert({
+          romps_id: obj.rmpName,
+          trip_id: obj.trpName
         })   //this closes insert
         .finally(function() {
         });
@@ -77,7 +87,7 @@ module.exports = {
         })   //thiscloses insert
         .finally(function() {
         });   //this closes finally
-    }   //this closes schedule_create
+    },   //this closes schedule_create
 
     activity_trip_create: function(obj) {
       knex('activity_trip')
