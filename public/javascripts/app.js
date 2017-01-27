@@ -6,6 +6,9 @@ $( document ).ready(function(){
     menuWidth: 750,
     draggable: true
   });
+  rompClick();
+
+
 
 
 
@@ -34,12 +37,13 @@ $( document ).ready(function(){
       var dataIn = data;
       console.log("this is dataIn ", dataIn);
 
-
     $.post('/verify', dataIn, function(data){
       console.log("this is data post", data);
       window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
 
     })
+
+//WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
 
 
     }
@@ -156,17 +160,21 @@ addOtter(romp);
       } //this closes for loop
   }   //this closes function addOtter
 
+//WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
+
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
+//WRITE A CODE THAT GETS ROMPARRAY FROM LOCAL STORAGE
       var rompName = romp;
+//WRITE A CODE THAT PUSHES ROMPNAME INTO ROMPARRAY
+//WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
 //romp is only a string
       $.post('/romps', rompName, function(data) {
         console.log(data);
       })
-
       event.preventDefault();
-      $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
-      " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a><br>");
+      $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
+      " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a></div><br>");
       $(".romp-content").remove();
       i=$("#romplist")[0].childNodes.length;
       $("#romp-form").append("<div class='romp-content'>"+
@@ -180,8 +188,20 @@ addOtter(romp);
         "</div>"+
       "</div>");
       createRomp(i);
+      rompClick();
+
     });
   }
+function rompClick(){
+
+  $(".rompBut").on("click", function(){
+    event.preventDefault();
+    var romp = $(this).find("a").attr("id");
+    console.log(romp)
+  });
+}
+
+
 //activity code:
 var time;
   var act;
