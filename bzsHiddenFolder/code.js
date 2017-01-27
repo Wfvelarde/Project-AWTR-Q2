@@ -1,6 +1,10 @@
 //this is where I'm putting experimental code
 
 
+
+//this is the new line that I wrote
+
+
 //get data from trip table
 //define route in app.js main page
 //create get_trip.js in routes folder
