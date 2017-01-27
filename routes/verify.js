@@ -17,7 +17,7 @@ router.post('/', function(req, res, next){
     .where("username", req.body.username)
     .returning("password")
     .then(function(result) {
-      // console.log("this is password", password);
+      console.log(result)
       console.log("we are in the then");
       var hashPw = result[0].password; //NOW RIGHT!!
       console.log("this is rawPw", rawPw);
@@ -27,7 +27,6 @@ router.post('/', function(req, res, next){
         if (result2) {
           //go to pg 2
           res.send({});
-
           console.log("we are in true === pg2");
         } else {
           //err message
@@ -37,7 +36,7 @@ router.post('/', function(req, res, next){
       })
     })//this closes then
     .finally(function(){
-      knex.destroy();
+      // knex.destroy();
     })//this closes finally
 })//this closes post
 
