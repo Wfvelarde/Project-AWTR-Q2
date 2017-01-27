@@ -9,6 +9,7 @@ $( document ).ready(function(){
   });//end of Nav listener
 
   rompClick();
+  tripClick();
 //sign in button event listener
   $("#signin").click(function(){
       if($("#signin-form").html()===""){
@@ -215,7 +216,7 @@ function rompClick(){
   $(".rompBut").on("click", function(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
-    console.log(romp)
+    $("#rompTitle").html(romp+" Romp");
   });
 }//end of click
 
@@ -393,8 +394,8 @@ function addTrip(){
           console.log(data);
         });
 
-        $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
-        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
+        $("#triplist").append("<li id = '"+tripDate+"'><div class ='tripButt'><h3 id= '"+tripname+
+        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></li>");
         tripMap(tripLocation, tripname, tripDate);
         $("#tripform").html("");
       }
@@ -409,8 +410,18 @@ function addTrip(){
           var googleTown = town.results[0].formatted_address;
           $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:30px;'></a>");
         });
+        tripClick();
     }//end of tripMap
 
+      //listens to the trip
+      function tripClick(){
+      $(".tripButt").click(function(){
+        event.preventDefault();
+        var tripID = $(this).find("h3").attr("id");
+        $("#tripTitle").html(tripID+" Trip");
+
+      });
+    }
 
 
 
