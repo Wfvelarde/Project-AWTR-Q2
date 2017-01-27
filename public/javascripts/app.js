@@ -161,8 +161,6 @@ function rompForm(romp){
         $("#membername").val("");
         otterArr.push(otter);
       });
-      //sends the members and romp name to the romp list
-      confirm(romp, otterArr)
       //Austin not sure if this should be here
       for(var i=0;i<otterArr.length; i++) {
         var newMember = {
@@ -173,12 +171,21 @@ function rompForm(romp){
           console.log(data);
         }) //this closes post
       } //this closes for loop
+      $("#confirmromp").click(function(){
+        //sends the members and romp name to the romp list
+        confirm(romp, otterArr)
+      });
   }   //this closes function addOtter
 
 //WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
   //confirm romp to the list
+
+  $("#joinRomp").click(function(){
+
+  });
+
+
   function confirm(romp, otterArr){
-    $("#confirmromp").click(function(){
 //WRITE A CODE THAT GETS ROMPARRAY FROM LOCAL STORAGE
       var rompName = romp;
 //WRITE A CODE THAT PUSHES ROMPNAME INTO ROMPARRAY
@@ -207,7 +214,6 @@ function rompForm(romp){
         createRomp(i);
         rompClick();
 
-    });
   }//end of confirm romp
 
   //listens to the romp being clicked
@@ -394,8 +400,8 @@ function addTrip(){
           console.log(data);
         });
 
-        $("#triplist").append("<li id = '"+tripDate+"'><div class ='tripButt'><h3 id= '"+tripname+
-        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></li>");
+        $("#triplist").append("<li id = '"+tripDate+"'><div class ='tripButt'><div class = 'tripdButt'><h3 value = 0 id= '"+tripname+
+        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></div></li>");
         tripMap(tripLocation, tripname, tripDate);
         $("#tripform").html("");
       }
@@ -421,7 +427,28 @@ function addTrip(){
         $("#tripTitle").html(tripID+" Trip");
 
       });
+      // $(".tripdButt").on("dblclick",function(){
+      //   event.preventDefault();
+      //   var buttonClick = $(this).find("h3")
+      //   var tripID = buttonClick.attr("id");
+      //   var valueT = $("#"+tripID).attr("value");
+      //   if (valueT==="0"){
+      //     $("#"+tripID).append("<button class = 'delete' type='button'>Delete "+tripID+"</button>");
+      //     $("#"+tripID).attr("value",1);
+      //     deleteButton(tripID);
+      //   }else{
+      //     $(".delete").remove();
+      //     $("#"+tripID).attr("value",0);
+      //   }
+      //
+      // });
     }
+
+    // function deleteButton(trip){
+    //   $(".delete").click(function(){
+    //     console.log($(this).parent("li"));
+    //   });
+    // }
 
 
 
