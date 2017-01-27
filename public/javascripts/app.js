@@ -15,25 +15,43 @@ $( document ).ready(function(){
 
   $("#signin").click(function(){
       if($("#signin-form").html()===""){
-      signIn("","");
+        signIn("","");
       }else{
-      signIn($("#username").val(),$("#password").val());
+        signIn($("#username").val(),$("#password").val());
       }
+      // else{
+      //   var data = $("#form-in").serializeArray().reduce(function(obj,item){
+      //     obj[item.name]=item.value;
+      //     return obj;
+      //   },{});
+      //   if (data.password ===""){
+      //     $("#password").attr("placeholder", "Please provide password");
+      //   }
+      //   if(data.username ===""){
+      //     $("#username").attr("placeholder", "Please provide username");
+      //   }
+      //   if (data.username !==""&&data.password !==""){
+      //     var dataIn = data;
+      //     console.log("this is dataIn ", dataIn);
+      //   $.post('/verify', dataIn, function(data){
+      //     console.log("this is data post", data);
+      //     window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
+
+
     });
 
 
 
-    function signIn(username,password){
-      event.preventDefault();
+function signIn(username,password){
+    event.preventDefault();
       if($("#signin-form").html()===""){
-      $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
-      "Username:<input type='text' name='username' id = 'username' value="+username+
-      "><p>Password:</p><input type='password' id ='password' "+
-      "name='password' value="+password+"></form> ");
+        $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
+        "Username:<input type='text' name='username' id = 'username' value="+username+
+        "><p>Password:</p><input type='password' id ='password' "+
+        "name='password' value="+password+"></form> ");
       if($("#signup-form").html()!==""){
-      $("#signup-form").html('');
-      }
-    }else{
+        $("#signup-form").html('');
+      }else{
       var data = $("#form-in").serializeArray().reduce(function(obj,item){
         obj[item.name]=item.value;
         return obj;
