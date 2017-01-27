@@ -163,15 +163,20 @@ function rompForm(romp){
       //sends the members and romp name to the romp list
       confirm(romp, otterArr)
       //Austin not sure if this should be here
-      for(var i=0;i<otterArr.length; i++) {
-        var newMember = {
-            name: romp,  //check to see if correct syntax
-            member: otterArr[i]   //this only works if the member is name and not id
-        }; //this closes newMember object
-        $.post('/mem_romps_join', newMember, function(data) {
-          console.log(data);
-        }) //this closes post
-      } //this closes for loop
+      // for(var i=0;i<otterArr.length; i++) {
+      //   var newMember = {
+      //       name: romp,  //check to see if correct syntax
+      //       member: otterArr[i]   //this only works if the member is name and not id
+      //   }; //this closes newMember object
+
+      // var memID = localStorage.getItem('userName');
+      // joinArray.members_id = memID;
+      //
+      //
+      // $.post('/mem_romps_join', newMember, function(data) {
+      //   console.log(data);
+      // }) //this closes post
+    // } //this closes for loop
   }   //this closes function addOtter
 
 //WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
@@ -179,10 +184,11 @@ function rompForm(romp){
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
 //WRITE A CODE THAT GETS ROMPARRAY FROM LOCAL STORAGE
-      var rompName = romp;
 //WRITE A CODE THAT PUSHES ROMPNAME INTO ROMPARRAY
 //WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
-
+    var rompName = {
+      name:romp
+    }
 //romp is only a string
       $.post('/romps', rompName, function(data) {
         console.log(data);
@@ -254,6 +260,15 @@ function createActivity(){
              $.post('/activities', timeAct, function(data) {
                console.log(data);
              });
+
+             var bzsObj = {
+              bzTrip: 10,
+              bzAct: 2
+             }
+             $.post('/trip_activity_join', bzsObj, function(data) {
+               console.log(data);
+             });
+
           $("#inputform").remove();
         activityButton(act,time);
         activityEdit(act,time);

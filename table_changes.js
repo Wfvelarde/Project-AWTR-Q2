@@ -18,29 +18,29 @@ module.exports = {
       .finally(function() {
 
       });   //this closes finally
-    
+
 
 
   },   //this closes members_update
 
 
-    romps_create: function(rompName) {  //rompName is a string
+    romps_create: function(obj) {  //rompName is a string
       knex('romps')
         .insert({
-          name: rompName.name //maybe this
+          name: obj.name //maybe this
         })   //this closes update
         .finally(function() {
         });
     },   //this closes romps_create
 
     members_romps_join: function() {
-      // knex('romps_members_join')
-      //   .insert({
-      //     romps_id: obj.rompID,
-      //     member_id: obj.memberID
-      //   })   //this closes update
-      //   .finally(function() {
-      //   });   //this closes finally
+      knex('romps_members_join')
+        .insert({
+          romps_id: obj.rompID,
+          member_id: obj.memberID
+        })   //this closes update
+        .finally(function() {
+        });   //this closes finally
     },   //this closes members_romps_join
 
 
@@ -79,6 +79,15 @@ module.exports = {
         });   //this closes finally
     }   //this closes schedule_create
 
+    activity_trip_create: function(obj) {
+      knex('activity_trip')
+        .insert({
+          activity_id: obj.bzAct,
+          trip_id: obj.bzTrip
+        })   //thiscloses insert
+        .finally(function() {
+        });   //this closes finally
+    }   //this closes schedule_create
 
 
 

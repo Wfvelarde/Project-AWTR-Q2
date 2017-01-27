@@ -14,6 +14,7 @@ var modActivity = require('./routes/modActivity');
 var verify = require('./routes/verify');
 var trips = require('./routes/trips');
 var activities = require('./routes/activities');
+var trip_activity_join = require('./routes/trip_activity_join');
 
 
 var app = express();
@@ -39,6 +40,7 @@ app.use('/modActivity', modActivity);
 app.use('/verify', verify);
 app.use('/trips', trips);
 app.use('/activities', activities);
+app.use('/trip_activity_join', trip_activity_join);
 
 
 
