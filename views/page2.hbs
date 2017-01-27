@@ -14,38 +14,6 @@
                     <!-- AUSTINS CODE -->
 
 
-                        <section>
-                          <ul id="selectromp" class="collapsible" data-collapsible="accordion">
-                              <li>
-                                  <div class="collapsible-header center-align"><h1>Select Romp</h1></div>
-                                  <div class="collapsible-body">
-                                      <h3>Romp List:</h3>
-                                      <div id="romplist">
-                                     </div>
-                                 </div>
-                              </li>
-                          </ul>
-                           <ul id="rompcreater" class="collapsible" data-collapsible="accordion">
-                               <li>
-                                   <div class="collapsible-header center-align"><h1>Create Romp</h1></div>
-                                   <div class="collapsible-body">
-                                     <div id="romp-form">
-                                       <div class="romp-content">
-                                        <form id="form">
-                                          <h3>Romp name:</h3>
-                                          <input id = "rompname" type="text" name="rompname" value="" style="font-size: 350%;"><br>
-                                        </form>
-                                        <div id="new-romp"></div>
-                                        <div class="button">
-                                          <a id = "create-romp1" class="waves-effect waves-teal btn-flat" style="font-size: 300%">Create Romp</a>
-                                        </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                               </li>
-                           </ul>
-                       </section>
-
 
 
 
@@ -59,8 +27,32 @@
 <main>
     <div class="awtrMain col l12 s12">
       <div class="row">
+        <!-- romp section -->
+            <ul id="selectromp" class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header center-align"><h1 id="rompTitle">Romps</h1></div>
+                    <div class="collapsible-body">
+                        <h3>Romp List:</h3>
+                        <div id="romplist">
+                       </div>
+                       <h1>Create Romp</h1>
+                       <div id="romp-form">
+                         <div class="romp-content">
+                          <form id="form">
+                            <h3>Romp name:</h3>
+                            <input id = "rompname" type="text" name="rompname" value="" style="font-size: 350%;"><br>
+                          </form>
+                          <div id="new-romp"></div>
+                          <div class="button">
+                            <a id = "create-romp1" class="waves-effect waves-teal btn-flat" style="font-size: 300%">Create Romp</a>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                 </li>
+               </ul>
 
-      <h1>Romp Name</h1>
+        <!-- trip section -->
         <ul id="selectTrip" class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header"><h2>Select Trip</h2></div>
@@ -74,7 +66,9 @@
                </div>
             </li>
         </ul>
-        <div id = "activity-form" class = "col s12"></div>
+
+        <!-- activity section -->
+        <div id = "activity-form" class = "row"></div>
         <h2 id= "activity" class="waves-effect waves-orange btn-flat">Add Activity</h2>
       </div>
 
