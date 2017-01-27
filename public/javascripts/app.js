@@ -6,6 +6,9 @@ $( document ).ready(function(){
     menuWidth: 750,
     draggable: true
   });
+  rompClick();
+
+
 
 
 
@@ -16,37 +19,60 @@ $( document ).ready(function(){
     }else{
     signIn($("#username").val(),$("#password").val());
     }
+
+  }else{
+    var data = $("#form-in").serializeArray().reduce(function(obj,item){
+      obj[item.name]=item.value;
+      return obj;
+    },{});
+    if (data.password ===""){
+      $("#password").attr("placeholder", "Please provide password");
+    }
+    if(data.username ===""){
+      $("#username").attr("placeholder", "Please provide username");
+    }
+    if (data.username !==""&&data.password !==""){
+      var dataIn = data;
+      console.log("this is dataIn ", dataIn);
+
+    $.post('/verify', dataIn, function(data){
+      console.log("this is data post", data);
+      window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
+
   });
+//  AUSTIN DUPLICATE STUFF....DELETE THIS OR ABOVE?
+//     function signIn(username,password){
+//       event.preventDefault();
+//       if($("#signin-form").html()===""){
+//       $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
+//       "Username:<input type='text' name='username' id = 'username' value="+username+
+//       "><p>Password:</p><input type='password' id ='password' "+
+//       "name='password' value="+password+"></form> ");
+//       if($("#signup-form").html()!==""){
+//       $("#signup-form").html('');
+//       }
+//     }else{
+//       var data = $("#form-in").serializeArray().reduce(function(obj,item){
+//         obj[item.name]=item.value;
+//         return obj;
+//       },{});
+//       if (data.password ===""){
+//         $("#password").attr("placeholder", "Please provide password");
+//       }
+//       if(data.username ===""){
+//         $("#username").attr("placeholder", "Please provide username");
+//       }
+//       if (data.username !==""&&data.password !==""){
+//         var dataIn = data;
+//         console.log("this is dataIn ", dataIn);
+//       $.post('/verify', dataIn, function(data){
+//         console.log("this is data post", data);
+//         window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
 
-    function signIn(username,password){
-      event.preventDefault();
-      if($("#signin-form").html()===""){
-      $("#signin-form").html("<form action='action_page.php' id='form-in'>"+
-      "Username:<input type='text' name='username' id = 'username' value="+username+
-      "><p>Password:</p><input type='password' id ='password' "+
-      "name='password' value="+password+"></form> ");
-      if($("#signup-form").html()!==""){
-      $("#signup-form").html('');
-      }
-    }else{
-      var data = $("#form-in").serializeArray().reduce(function(obj,item){
-        obj[item.name]=item.value;
-        return obj;
-      },{});
-      if (data.password ===""){
-        $("#password").attr("placeholder", "Please provide password");
-      }
-      if(data.username ===""){
-        $("#username").attr("placeholder", "Please provide username");
-      }
-      if (data.username !==""&&data.password !==""){
-        var dataIn = data;
-        console.log("this is dataIn ", dataIn);
-      $.post('/verify', dataIn, function(data){
-        console.log("this is data post", data);
-        window.location = "/page2"  //sometimes have to handle redirect on client side for some reason
 
-      })
+//       })
+
+//WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
 
 
       }
@@ -165,20 +191,22 @@ addOtter(romp);
       } //this closes for loop
   }   //this closes function addOtter
 
+//WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
+
   function confirm(romp, otterArr){
     $("#confirmromp").click(function(){
-      var rompName ={
-        name: romp
-      };
-      console.log("this is the stupid rompName", rompName);
+//WRITE A CODE THAT GETS ROMPARRAY FROM LOCAL STORAGE
+      var rompName = romp;
+//WRITE A CODE THAT PUSHES ROMPNAME INTO ROMPARRAY
+//WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
+
 //romp is only a string
       $.post('/romps', rompName, function(data) {
         console.log(data);
       })
-
       event.preventDefault();
-      $("#romplist").append("<a id = '"+romp+"' class='waves-effect"+
-      " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a><br>");
+      $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
+      " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a></div><br>");
       $(".romp-content").remove();
       i=$("#romplist")[0].childNodes.length;
       $("#romp-form").append("<div class='romp-content'>"+
@@ -192,8 +220,20 @@ addOtter(romp);
         "</div>"+
       "</div>");
       createRomp(i);
+      rompClick();
+
     });
   }
+function rompClick(){
+
+  $(".rompBut").on("click", function(){
+    event.preventDefault();
+    var romp = $(this).find("a").attr("id");
+    console.log(romp)
+  });
+}
+
+
 //activity code:
 var time;
   var act;
