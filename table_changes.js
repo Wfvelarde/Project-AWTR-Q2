@@ -18,30 +18,46 @@ module.exports = {
       .finally(function() {
 
       });   //this closes finally
-    
+
 
 
   },   //this closes members_update
 
 
-    romps_create: function(rompName) {  //rompName is a string
+    romps_create: function(obj) {  //rompName is a string
       knex('romps')
         .insert({
-          name: rompName.name //maybe this
+          name: obj.name //maybe this
         })   //this closes update
         .finally(function() {
         });
     },   //this closes romps_create
 
-    members_romps_join: function() {
-      // knex('romps_members_join')
-      //   .insert({
-      //     romps_id: obj.rompID,
-      //     member_id: obj.memberID
-      //   })   //this closes update
-      //   .finally(function() {
-      //   });   //this closes finally
+    members_romps_join: function(obj) {
+      knex('romps_members_join')
+        .insert({
+          romps_id: obj.rompID,
+          members_id: obj.memberID
+        })   //this closes update
+        .finally(function() {
+        });   //this closes finally
     },   //this closes members_romps_join
+
+    get_members: function(obj) {
+      knex('members').join('romps_members_join').join('romps')
+        .where('members', '=', 'romps_members_join', '=', 'romps' )
+        .then()
+        .finally(function() {
+        });
+
+        .then(function() {
+          return knex('members')
+          .select('romps.name as user', );
+            .innerjoin('romps_members_join', 'users.id', 'accounts.user_id')
+            .innerJoin('romps',)
+
+})
+    },   //this closes activity_create
 
 
     activity_create: function(obj) {
@@ -49,6 +65,16 @@ module.exports = {
         .insert({
           name: obj.actName,
           time: obj.timeOfAct
+        })   //this closes insert
+        .finally(function() {
+        });
+    },   //this closes activity_create
+
+    romps_trips_create: function(obj) {
+      knex('romps_trips')
+        .insert({
+          romps_id: obj.rmpName,
+          trip_id: obj.trpName
         })   //this closes insert
         .finally(function() {
         });
@@ -77,8 +103,17 @@ module.exports = {
         })   //thiscloses insert
         .finally(function() {
         });   //this closes finally
-    }   //this closes schedule_create
+    },   //this closes schedule_create
 
+    activity_trip_create: function(obj) {
+      knex('activity_trip')
+        .insert({
+          activity_id: obj.bzAct,
+          trip_id: obj.bzTrip
+        })   //thiscloses insert
+        .finally(function() {
+        });   //this closes finally
+    }   //this closes schedule_create
 
 
 
