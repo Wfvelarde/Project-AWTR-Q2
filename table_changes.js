@@ -43,6 +43,22 @@ module.exports = {
         });   //this closes finally
     },   //this closes members_romps_join
 
+    get_members: function(obj) {
+      knex('members').join('romps_members_join').join('romps')
+        .where('members', '=', 'romps_members_join', '=', 'romps' )
+        .then()
+        .finally(function() {
+        });
+
+        .then(function() {
+          return knex('members')
+          .select('romps.name as user', );
+            .innerjoin('romps_members_join', 'users.id', 'accounts.user_id')
+            .innerJoin('romps',)
+
+})
+    },   //this closes activity_create
+
 
     activity_create: function(obj) {
       knex('activity')

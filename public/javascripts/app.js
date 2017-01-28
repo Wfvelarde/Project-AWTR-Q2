@@ -56,6 +56,10 @@ function signIn(username,password){
           }//last if statement passing the object
 //WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
       }//end of else statments for data object
+      $.get('/', romp, function(rompArr){
+        console.log(rompArr);
+      });
+
   }//end of Sign In
 
 
@@ -161,7 +165,6 @@ function rompForm(romp){
         otterArr.push(otter);
       });
       //sends the members and romp name to the romp list
-      confirm(romp, otterArr)
   //Austin not sure if this should be here
       // for(var i=0;i<otterArr.length; i++) {
       //   var newMember = {
@@ -181,22 +184,25 @@ function rompForm(romp){
         console.log(data);
       }) //this closes post
     // } //this closes for loop
+    $("#confirmromp").click(function(){
+      confirm(romp, otterArr)
+      });
+
   }   //this closes function addOtter
 
 //WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
   //confirm romp to the list
   function confirm(romp, otterArr){
-    $("#confirmromp").click(function(){
 //WRITE A CODE THAT GETS ROMPARRAY FROM LOCAL STORAGE
 //WRITE A CODE THAT PUSHES ROMPNAME INTO ROMPARRAY
 //WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
     var rompName = {
       name:romp
     }
+
+    confirmPost(rompName)
 //romp is only a string
-      $.post('/romps', rompName, function(data) {
-        console.log(data);
-      })
+
       event.preventDefault();
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
@@ -216,8 +222,14 @@ function rompForm(romp){
         createRomp(i);
         rompClick();
 
-    });
+
   }//end of confirm romp
+function confirmPost(rompName){
+  $.post('/romps', rompName, function(data) {
+    console.log(data);
+  })
+}
+
 
   //listens to the romp being clicked
 function rompClick(){
@@ -226,6 +238,7 @@ function rompClick(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
     console.log(romp)
+
   });
 }//end of click
 
@@ -421,9 +434,7 @@ function addTrip(){
           console.log(data);
         });
 
-
-        $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
-        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
+        tripList(tripDate, tripname)
         tripMap(tripLocation, tripname, tripDate);
         $("#tripform").html("");
       }
@@ -431,6 +442,12 @@ function addTrip(){
 
     });
   }//end of addTrip
+
+function tripList(tripDate, tripname){
+  $("#triplist").append("<li id = '"+tripDate+"'><h6 id= '"+tripname+
+  "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h6></li>");
+}
+
 
 //inputs the trip map
     function tripMap(place, tripID, dateID){
