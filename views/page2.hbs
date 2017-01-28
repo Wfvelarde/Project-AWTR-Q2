@@ -17,32 +17,35 @@
 <!-- MAIN   -->
 <main>
     <div class="awtrMain col l12 s12">
-      
+
         <!-- romp section -->
         <div class="awtrMain2 col l12 s12">
             <ul id="selectromp" class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div id="rompTitle" class="collapsible-header center-align">My Romps</div>
+                    <div id="rompTitle" class="collapsible-header center-align"><p class="myRomps">My Romps</p><p class="rompExplained">(your travel group)<p></div>
 
                     <div class="collapsible-body">
-                        <h3>My romp list:</h3>
-                        <div id="romplist">
-                        </div>
 
                        <!-- <h1>Create Romp</h1> -->
                        <div id="romp-form">
                          <div class="romp-content">
+<!-- ______________ -->
+                          <h3 class="existingRomps">My existing Romps:</h3>
+                          <div id="romplist">
+                          </div>
 
                           <form id="form">
-                            <h3>Romp name:</h3>
-                            <input id = "rompname" type="text" name="rompname" value="" style="font-size: 350%;"><br>
+                            <h3 class="addRompName">Add a romp name:</h3>
+                            <input id = "rompname" type="text" name="rompname" value=""  autofocus="autofocus"><br>
                           </form>
 
                           <div id="new-romp">
                           </div>
 
+<!-- ______________ -->
+
                           <div class="button">
-                            <a id = "create-romp1" class="waves-effect waves-light btn" style="font-size: 300%">Create Romp</a>
+                            <a id = "create-romp1" class="waves-effect waves-light btn" style="font-size: 300%">Add Romp</a>
 
                           </div>
                         </div>
@@ -51,24 +54,26 @@
                  </li>
                </ul>
 
-        <!-- trip section -->
-        <ul id="selectTrip" class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header">Select Trip</div>
+<!-- TRIP section -->
+        <ul id="selectTripUL" class="collapsible" data-collapsible="accordion">
+            <li class="tripLi">
+
+                <div class="selectTrip2 collapsible-header"><p class="selectTripHeading">Select a Trip</p></div>
+
                 <div class="collapsible-body">
                     <h2>Trip List:</h2>
                     <ul id="triplist">
                    </ul>
                    <form id = "tripform" action="action_page.php">
                   </form>
-                   <h3 id= "addtrip" class="waves-effect waves-teal btn-flat">Add Trip</h3>
+                   <h3 id= "addtrip" class="waves-effect waves-teal btn">Add Trip</h3>
                </div>
             </li>
         </ul>
 
         <!-- activity section -->
         <div id = "activity-form" class = "row"></div>
-        <div id= "activity" class="waves-effect waves-orange btn-flat">Add Activity</div>
+        <div id= "activity" class="waves-effect waves-light btn">Add Activity</div>
       </div>
 
       </div>
