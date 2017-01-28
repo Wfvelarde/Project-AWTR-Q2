@@ -302,7 +302,7 @@ function activityButton(act,time){
 
   var $buttons = $(".buttonAct");
   var child = $buttons[0].innerHTML;
-
+  
   if($buttons.length>1){
     sortButtons($buttons);
   }
