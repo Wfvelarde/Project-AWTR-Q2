@@ -150,7 +150,7 @@ function rompForm(romp){
       "</form>");
     $("#create-romp"+i).remove();
     $("#form").remove();
-    $(".button").append("<a id = 'addmember' class='waves-effect"+
+    $("#new-romp").append("<a id = 'addmember' class='waves-effect"+
     " waves-teal btn-flat'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
     " waves-teal btn-flat'>Confirm Romp</a>");
     addOtter(romp);
@@ -206,7 +206,7 @@ function rompForm(romp){
         " waves-teal btn-flat'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
-        $("#romp-form").append("<div class='romp-content'>"+
+        $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
