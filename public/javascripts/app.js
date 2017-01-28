@@ -49,17 +49,22 @@ function signIn(username,password){
 
             console.log("this is dataIn ", dataIn);
 
+      //this route sends and compares passwords
           $.post('/verify', dataIn, function(data){
             console.log("this is data post", data);
             window.location = "/page2";  //sometimes have to handle redirect on client side for some reason
-            });
+          });  //ends route sends and compares passwords
 
-          }//last if statement passing the object
+        }//last if statement passing the object
+
+
 //WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
       }//end of else statments for data object
+
+    //this route puts romp data in table
       $.get('/', romp, function(rompArr){
         console.log(rompArr);
-      });
+      });  //ends route putting romp data in table
 
   }//end of Sign In
 
@@ -113,17 +118,22 @@ function signIn(username,password){
             console.log("this is firstname");
             console.log(dataUp.firstname);
 
+        //this route adds dataUp data to members table
             $.post('/members', dataUp, function(data) {
               console.log(data);
-            });
-            signIn(dataUp.username, dataUp.password);
+            });  //closes adds dataUp data to members table
 
+        //this area will send data to local storage for use within the app
+            localStorage.setItem('lsMemberUsername', dataUp.username);
+            // localStorage.setItem('lsMemberAvatar', dataUp.avatar);
+            localStorage.setItem('lsMemberFirstName', dataUp.firstname);
+        //this closes area where member data is sent to local storage
+
+            signIn(dataUp.username, dataUp.password);
           }//end of last if statement
       }//end of else statement for data object
-
 }); //end of sign up
 
-// AUSTINS CODE
 
   var i=$("#romplist")[0].childNodes.length;
     createRomp(i);
@@ -154,7 +164,7 @@ function rompForm(romp){
     " waves-teal btn-flat'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
     " waves-teal btn-flat'>Confirm Romp</a>");
     addOtter(romp);
-}
+}  //ends rompForm
 
   function addOtter(romp){
     var otterArr = [];
@@ -164,17 +174,26 @@ function rompForm(romp){
         $("#memberlist").append(  "<li>Otter"+ " " +otter+"</li>");
         $("#membername").val("");
         otterArr.push(otter);
-      });
 
+    //pushing latest otterArr to localStorage
+    localStorage.setItem('lsOtterArray', otterArr);
+    //closing pushing latest otterArr to localStorage
 
+  });  //this closes addmember.click
+
+//this is garbage data for following post
       var newMember = {
         rompID: 29,
         memberID: 10
       };
+//this is garbage data for following post
+
+  //this route sends FK data to members_romps_join table
       $.post('/mem_romps_join', newMember, function(data) {
         console.log(data);
       }) //this closes post
-    // } //this closes for loop
+  //this closes route sends FK data to members_romps_join table
+
     $("#confirmromp").click(function(){
       confirm(romp, otterArr)
       });
@@ -186,7 +205,7 @@ function rompForm(romp){
 
   $("#joinRomp").click(function(){
 
-  });
+  });  //this closes #joinRomp
 
 
   function confirm(romp, otterArr){
@@ -198,7 +217,6 @@ function rompForm(romp){
     }
 
     confirmPost(rompName)
-//romp is only a string
 
       event.preventDefault();
       //appending romps to the list
@@ -218,25 +236,22 @@ function rompForm(romp){
         "</div>");
         createRomp(i);
         rompClick();
+  }//end of function confirm
 
-  }//end of confirm romp
 function confirmPost(rompName){
   $.post('/romps', rompName, function(data) {
     console.log(data);
   })
-}
+}  //closes function confirmPost
 
-
-  //listens to the romp being clicked
+//listens to the romp being clicked
 function rompClick(){
-
   $(".rompBut").on("click", function(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
-
     $("#rompTitle").html(romp+" Romp");
   });
-}//end of click
+}//end of rompClick
 
 
 //activity code:
@@ -270,24 +285,32 @@ function createActivity(){
                  timeOfAct: time,
                  actName: act
                };
+
+          //this route sends data to activities table
              $.post('/activities', timeAct, function(data) {
                console.log(data);
              });
+          //closes route sends data to activities table
 
+          //fake data  fake data  fake data
              var bzsObj = {
               bzTrip: 25,
               bzAct: 14
              }
+          //fake data  fake data  fake data
+
+          //this route sends FK to trip_activity_join
              $.post('/trip_activity_join', bzsObj, function(data) {
                console.log(data);
              });
+          //closes route sends FK to trip_activity_join
 
           $("#inputform").remove();
         activityButton(act,time);
         activityEdit(act,time);
       }
     });
-  }//end of create activity
+  }//end of function createActivity
 
 //this creates the buttons once the activity and time have been sent
 function activityButton(act,time){
@@ -304,7 +327,7 @@ function activityButton(act,time){
   if($buttons.length>1){
     sortButtons($buttons);
   }
-}//end of button
+}//end of function activityButton
 
 // this sorts the buttons once they have been added or edit
   function sortButtons($buttons){
@@ -321,16 +344,13 @@ function activityButton(act,time){
     for (var i = 0; i < $buttons.length; i++) {
         $("#activity-form").append($buttons[i].outerHTML);
     }
-
       $(".buttonAct").on("click", function(){
         event.preventDefault();
         var act = $(this).find("h1").attr("id");
         var timeVal=$(this).find("h1").attr("value");
         activityEdit(act, timeVal);
       });
-
-  }//end of sort
-
+  }//end of function sortButtons
 
 //create the activity into a proper ID
 function actionID(act){
@@ -338,7 +358,7 @@ function actionID(act){
      act = act.replace(" ", "_");
     }
     return act;
-}//end of ActID
+}//end of function actionID
 
 //sets the time from military to 12 hour clock
 function timeSet(time){
@@ -355,7 +375,7 @@ function timeSet(time){
     settime = hour+time[2]+time[3]+time[4]+" AM";
   }
   return settime;
-}//end of time
+}//end of function timeSet
 
 
 
@@ -393,7 +413,7 @@ function activityEdit(act, timeVal){
         $("#"+actID+"form").remove();
       }
     });
-  }//end of activity
+  }//end of function activityEdit
 
 //add a trip
 function addTrip(){
@@ -417,33 +437,39 @@ function addTrip(){
           location: tripLocation,
           date: tripDate
         }
-        //created row on trips table
+
+    //this route created row on trips table
         $.post('/trips', tripObj, function(data) {
           console.log(data);
         });
-        //created row on romp_trips table
+    //closes route created row on romp_trips table
+
+    //fake data  fake data  fake data
         var rmpTrp = {
           rmpName: 29,
           trpName: 25
         };
+    //fake data  fake data  fake data
+
+    //this route sends FK on romp_trips table
         $.post('/romp_trips', rmpTrp, function(data) {
           console.log(data);
         });
+    //this route sends FK on romps_trips table
+
 
         tripList(tripDate, tripname)
-
         tripMap(tripLocation, tripname, tripDate);
         $("#tripform").html("");
-      }
+      } //ends else
+    });  //end of addTrip.click
+  }//end of function addTrip
 
-
-    });
-  }//end of addTrip
 
 function tripList(tripDate, tripname){
           $("#triplist").append("<li id = '"+tripDate+"'><div class ='tripButt'><div class = 'tripdButt'><h3 value = 0 id= '"+tripname+
         "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></div></li>");
-}
+}//end of function tripList
 
 
 //inputs the trip map
@@ -453,7 +479,7 @@ function tripList(tripDate, tripname){
           $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:30px;'></a>");
         });
         tripClick();
-    }//end of tripMap
+    }//end of function tripMap
 
       //listens to the trip
       function tripClick(){
@@ -462,7 +488,9 @@ function tripList(tripDate, tripname){
         var tripID = $(this).find("h3").attr("id");
         $("#tripTitle").html(tripID+" Trip");
 
-      });
+      });//end of .tripButt.click
+
+
       // $(".tripdButt").on("dblclick",function(){
       //   event.preventDefault();
       //   var buttonClick = $(this).find("h3")
@@ -478,7 +506,8 @@ function tripList(tripDate, tripname){
       //   }
       //
       // });
-    }
+
+    }//end of function tripClick
 
     // function deleteButton(trip){
     //   $(".delete").click(function(){
