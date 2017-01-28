@@ -4,6 +4,16 @@ font-family: 'Lobster Two', cursive;*/
   line-height: normal !important;
 }*/
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
   *{
     font-family: 'Cabin', sans-serif;
     color:#999999;
@@ -165,7 +175,7 @@ font-family: 'Lobster Two', cursive;*/
   .awtrMain {
     display: flex;
     background-color: #66cccc;
-    height: 80vh;
+    height: auto;
     width: 100%;
     justify-content: center;
   }
@@ -294,7 +304,7 @@ font-family: 'Lobster Two', cursive;*/
 #title{
   margin-top: 8em;
   font-size: 20px;
-  
+
   -webkit-animation-duration: 3s;
   -webkit-animation-delay: 1.8s;
 }
@@ -349,5 +359,15 @@ font-family: 'Lobster Two', cursive;*/
   margin-left: 6%;
 }
 
+#create-romp1 {
+  padding:2%;
+  height:auto;
+}
 
-
+#rompTitle {
+  font-size: 4rem;
+  height: 10vh;
+  width:60vw;
+  line-height: normal;
+  text-align: justify;
+}
