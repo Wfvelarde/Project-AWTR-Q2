@@ -16,7 +16,7 @@ main {
 
   *{
     font-family: 'Cabin', sans-serif;
-    color:#999999;
+    color: dimgrey;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -169,7 +169,6 @@ main {
 
   main {
     background-color: #66cccc;
-    color: grey;
   }
 
   .awtrMain {
@@ -359,15 +358,126 @@ main {
   margin-left: 6%;
 }
 
+/*BUTTON*/
 #create-romp1 {
-  padding:2%;
+  padding:3%;
   height:auto;
+  width: 100%;
 }
 
 #rompTitle {
-  font-size: 4rem;
-  height: 10vh;
+  font-size: 6rem;
+  padding: 2%;
+  height: auto;
   width:60vw;
-  line-height: normal;
-  text-align: justify;
+  line-height: 100px;
+  border-bottom: none;
+  /*border-radius: 20px;*/
+  line-height: 5rem;
+  -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  background-color: #80deea;
+}
+
+.rompExplained {
+  font-size: 2rem;
+  margin: 0;
+}
+.myRomps {
+  margin-bottom: 0;
+}
+.existingRomps {
+  /*padding-bottom: 4vh;*/
+  padding-left: 5%;
+}
+.addRompName {
+  padding-top: 4%;
+  padding-left: 5%;
+}
+
+#confirmromp{
+  font-size: 3rem;
+  padding:3%;
+  height:auto;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.newRompName {
+  color: grey;
+  padding-left: 10%;
+}
+#rompname {
+  font-size: 3rem;
+  color:white;
+}
+#membername {
+  font-size: 3rem;
+  color:white;
+}
+#selectromp {
+  margin-top: 5%;
+  padding: 5%;
+  border: none;
+  box-shadow: none;
+}
+
+#addmember {
+  font-size: 3rem;
+  padding:3%;
+  height:auto;
+  width: 100%;
+}
+.otterLI {
+  font-size: 2rem;
+  color:white;
+  padding-left: 15%;
+  color: grey;
+}
+
+.selectTrip {
+  padding: 5%;
+  border: none;
+  box-shadow: none;
+}
+.selectTrip2 {
+  font-size: 6rem;
+  padding: 2%;
+  height: auto;
+  width:auto;
+  line-height: 100px;
+  /*border-radius: 20px;*/
+  line-height: 5rem;
+  margin-left: none !important;
+  text-align: center;
+  border-bottom: none;
+  margin:5%;
+  -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  background-color: #80deea;
+
+}
+
+#selectTripUL {
+  border: none;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.selectTripHeading {
+  font-size: 6rem;
+}
+
+#activity {
+  padding:3%;
+  height:auto;
+  width: 100%;
+  font-size: 3rem;
+}
+#addtrip{
+  padding:3%;
+  height:auto;
+  width: 100%;
 }
