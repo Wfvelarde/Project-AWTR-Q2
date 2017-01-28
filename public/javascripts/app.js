@@ -153,16 +153,18 @@ function createRomp(i){
 //creates a member form for the romp
 function rompForm(romp){
       console.log("rompform");
-      $("#new-romp").append("<h3>"+romp+"</h3>"+
+      $("#new-romp").append("<h3 class='newRompName'>"+romp+"</h3>"+
       "<form id='member-form'>"+
-      "<ul id='memberlist'></ul>"+"<h3>Otter name:</h3>"+
-      "<input id = 'membername' type='text' name='membername' value=''><br>"+
+      "<ul id='memberlist'></ul>"+"<h3 class='otterNameEntered'>Enter otter name:</h3>"+
+      "<input id = 'membername' type='text' name='membername' autofocus='autofocus' value=''><br>"+
       "</form>");
     $("#create-romp"+i).remove();
     $("#form").remove();
-    $("#new-romp").append("<a id = 'addmember' class='waves-effect"+
-    " waves-teal btn-flat'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
-    " waves-teal btn-flat'>Confirm Romp</a>");
+
+    $(".button").append("<a id = 'addmember' class='waves-effect"+
+    " waves-light btn'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
+    " waves-light btn'>Confirm This Romp</a>");
+
     addOtter(romp);
 }  //ends rompForm
 
@@ -171,7 +173,7 @@ function rompForm(romp){
     $("#addmember").click(function(){
       event.preventDefault();
         var otter = $("#membername").val();
-        $("#memberlist").append(  "<li>Otter"+ " " +otter+"</li>");
+        $("#memberlist").append(  "<li class='otterLI'>Otter"+ " " +otter+"</li>");
         $("#membername").val("");
         otterArr.push(otter);
 
@@ -221,17 +223,17 @@ function rompForm(romp){
       event.preventDefault();
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
-        " waves-teal btn-flat'>"+romp+"</a></div><br>");
+        " waves-teal btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
         $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
-            "<h3>Romp Name:</h3>"+
+            "<h3 class=>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
           "</form>"+
           "<div id='new-romp'></div>"+
           "<div class='button'>"+
-            "<a id = 'create-romp"+i+"' class='waves-effect waves-teal btn-flat'>Create Romp</a>"+
+            "<a id = 'create-romp"+i+"' class='waves-effect waves-light btn'>Create Romp</a>"+
           "</div>"+
         "</div>");
         createRomp(i);
@@ -317,7 +319,7 @@ function activityButton(act,time){
   var settime = timeSet(time);
   var actID = actionID(act);
   $("#activity-form").append(
-    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat' >"+
+    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-light btn' >"+
     settime+"  "+act+"</h1><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
   );
 
@@ -459,6 +461,7 @@ function addTrip(){
 
 
         tripList(tripDate, tripname)
+
         tripMap(tripLocation, tripname, tripDate);
         $("#tripform").html("");
       } //ends else
