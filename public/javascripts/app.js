@@ -142,13 +142,13 @@ function rompForm(romp){
       $("#new-romp").append("<h3>"+romp+"</h3>"+
       "<form id='member-form'>"+
       "<ul id='memberlist'></ul>"+"<h3>Otter name:</h3>"+
-      "<input id = 'membername' type='text' name='membername' value='' style='font-size: 350%;'><br>"+
+      "<input id = 'membername' type='text' name='membername' value=''><br>"+
       "</form>");
     $("#create-romp"+i).remove();
     $("#form").remove();
     $(".button").append("<a id = 'addmember' class='waves-effect"+
-    " waves-teal btn-flat' style='font-size: 300%;'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
-    " waves-teal btn-flat' style='font-size: 300%;'>Confirm Romp</a>");
+    " waves-teal btn-flat'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
+    " waves-teal btn-flat'>Confirm Romp</a>");
     addOtter(romp);
 }
 
@@ -157,11 +157,11 @@ function rompForm(romp){
     $("#addmember").click(function(){
       event.preventDefault();
         var otter = $("#membername").val();
-        $("#memberlist").append(  "<li style='font-size: 350%;'>Otter"+ " " +otter+"</li>");
+        $("#memberlist").append(  "<li>Otter"+ " " +otter+"</li>");
         $("#membername").val("");
         otterArr.push(otter);
       });
-      //Austin not sure if this should be here
+
       for(var i=0;i<otterArr.length; i++) {
         var newMember = {
             name: romp,  //check to see if correct syntax
@@ -198,17 +198,17 @@ function rompForm(romp){
       event.preventDefault();
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
-        " waves-teal btn-flat' style='font-size: 300%;'>"+romp+"</a></div><br>");
+        " waves-teal btn-flat'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
         $("#romp-form").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3>Romp Name:</h3>"+
-            "<input id = 'rompname' type='text' name='rompname' value= '' style='font-size: 350%;'><br>"+
+            "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
           "</form>"+
           "<div id='new-romp'></div>"+
           "<div class='button'>"+
-            "<a id = 'create-romp"+i+"' class='waves-effect waves-teal btn-flat' style='font-size: 300%;'>Create Romp</a>"+
+            "<a id = 'create-romp"+i+"' class='waves-effect waves-teal btn-flat'>Create Romp</a>"+
           "</div>"+
         "</div>");
         createRomp(i);
@@ -242,8 +242,8 @@ function createActivity(){
 //creates a form for the activity
     if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-          "<h3>Time:</h3><br><input style='font-size: 350%; background-color: white;' type='time' name='time' id = 'time' value=''"+
-          "><h3>Activity:</h3><br><input style='font-size: 350%; background-color: white;' type='text' id ='act' "+
+          "<h3>Time:</h3><br><input type='time' name='time' id = 'time' value=''"+
+          "><h3>Activity:</h3><br><input type='text' id ='act' "+
           "name='act' value=''></form> ");
            time = $('#time').val();
            act = $('#act').val();
@@ -273,7 +273,7 @@ function activityButton(act,time){
   var settime = timeSet(time);
   var actID = actionID(act);
   $("#activity-form").append(
-    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat' style= 'height: 300%;' >"+
+    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-orange btn-flat' >"+
     settime+"  "+act+"</h1><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
   );
 
@@ -357,8 +357,8 @@ function activityEdit(act, timeVal){
         $(".editform").remove();
         //creates the edit form
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
-        "<h3>Time:</h3><br><input style='font-size: 350%; background-color: white;' type='time' name='time' id = 'edittime' value="+timeVal+
-        "><h3>Activity:</h3><br><input style='font-size: 350%; background-color: white;' type='text' id ='editact' "+
+        "<h3>Time:</h3><br><input  type='time' name='time' id = 'edittime' value="+timeVal+
+        "><h3>Activity:</h3><br><input type='text' id ='editact' "+
         "name='act' value='"+act+"'></form> ");
       }else if(edit >= 1){
         var editTime = $("#edittime").val();
@@ -382,9 +382,9 @@ function addTrip(){
       if ($("#tripform")[0].innerText===""){
         console.log("no form")
         //creates the trip form
-        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value='' style='font-size: 350%; background-color: white;'>"+
-        "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value='' style='font-size: 350%; background-color: white;'>"+
-        "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value='' style='font-size: 350%; background-color: white;'>");
+        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value=''>"+
+        "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value=''>"+
+        "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value=''>");
       }else{
         var tripname = $("#tripname").val();
         var tripLocation = $("#location").val();
