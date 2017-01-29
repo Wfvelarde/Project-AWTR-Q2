@@ -248,6 +248,11 @@ main {
     color:white !important;
   }
 
+  .awtrCopyright {
+    color:white !important;
+    text-align: center;
+  }
+
   .will-container {
   	display: flex;
   	align-items: center;
@@ -385,12 +390,25 @@ main {
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   background-color: #80deea;
   margin-right: 0 !important;
+  border-radius: 50%;
+  align-content: center;
+  justify-content: center;
 }
 
 .rompExplained {
+  display: flex;
   font-size: 2rem;
   margin: 0;
-  margin-bottom: 15%;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  width: auto;
+  padding-left: 15%;
+  padding-right: auto;
+  margin-top: 2%;
+  /*margin-bottom: 15%;*/
 }
 .myRomps {
   margin-bottom: 0;
@@ -399,6 +417,7 @@ main {
 .existingRomps {
   /*padding-bottom: 4vh;*/
   padding-left: 5%;
+  margin-top: 20%;
 }
 .addRompName {
   padding-top: 4%;
@@ -464,6 +483,7 @@ main {
   text-align: center;
   border-bottom: none;
   margin:5%;
+  margin-top: 15%;
   -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
