@@ -269,9 +269,9 @@ function createActivity(){
 //creates a form for the activity
     if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-          "<h3>Time:</h3><br><input type='time' name='time' id = 'time' value=''"+
+          "<h3>Time:</h3><br><input autofocus type='time' name='time' id = 'time' value='' "+
           "><h3>Activity:</h3><br><input type='text' id ='act' "+
-          "name='act' value=''></form> ");
+          "name='act' value='' autofocus></form> ");
            time = $('#time').val();
            act = $('#act').val();
          }else if(time==="" || act === "" ){
@@ -423,7 +423,7 @@ function addTrip(){
       if ($("#tripform")[0].innerText===""){
         console.log("no form")
         //creates the trip form
-        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value=''>"+
+        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value='' autofocus>"+
         "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value=''>"+
         "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value=''>");
       }else{
