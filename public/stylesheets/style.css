@@ -3,7 +3,9 @@ font-family: 'Lobster Two', cursive;*/
 /*nav {
   line-height: normal !important;
 }*/
-
+h3{
+  font-size: 3rem;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -48,6 +50,7 @@ main {
     justify-content: space-between;
     align-items: center !important;
     align-content: center;
+    /*position: fixed !important;*/
   }
 
   .awtrMenuButtonCollapse {
@@ -352,6 +355,9 @@ main {
   display: flex;
 }
 
+.awtrMainRow {
+  width:60vw;
+}
 .awtrBox{
   height: 50%;
   margin-top: 35%;
@@ -369,7 +375,7 @@ main {
   font-size: 6rem;
   padding: 2%;
   height: auto;
-  width:60vw;
+  width:100%;
   line-height: 100px;
   border-bottom: none;
   /*border-radius: 20px;*/
@@ -378,14 +384,17 @@ main {
   -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   background-color: #80deea;
+  margin-right: 0 !important;
 }
 
 .rompExplained {
   font-size: 2rem;
   margin: 0;
+  margin-bottom: 15%;
 }
 .myRomps {
   margin-bottom: 0;
+  margin-top: 15%;
 }
 .existingRomps {
   /*padding-bottom: 4vh;*/
@@ -398,10 +407,12 @@ main {
 
 #confirmromp{
   font-size: 3rem;
-  padding:3%;
+  padding:6%;
   height:auto;
   width: 100%;
   margin-top: 5%;
+  border: 10px solid dimgrey;
+  /*border-radius: 10%;*/
 }
 
 .newRompName {
@@ -480,4 +491,41 @@ main {
   padding:3%;
   height:auto;
   width: 100%;
+}
+#MyRomp {
+  background-color: white;
+}
+#addmember {
+  width: 100%;
+  font-size: 3rem;
+  height: auto;
+  padding: 3%;
+}
+
+.rompBut {
+  color: grey;
+}
+
+#tripname {
+  width: 100%;
+  font-size: 3rem;
+  height:
+}
+#location{
+  width: 100%;
+  font-size: 3rem;
+}
+
+#date {
+  width: 100%;
+  font-size: 3rem;
+}
+
+#time {
+  width: 100%;
+  font-size: 3rem;
+}
+#act {
+  width: 100%;
+  font-size: 3rem;
 }

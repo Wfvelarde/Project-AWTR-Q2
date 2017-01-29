@@ -220,7 +220,7 @@ function rompForm(romp){
     };
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
-        " waves-teal btn'>"+romp+"</a></div><br>");
+        " waves-light   btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
         $("#romp-form").append("<div class='romp-content'>"+
@@ -323,7 +323,7 @@ function activityButton(act,time){
 
   var $buttons = $(".buttonAct");
   var child = $buttons[0].innerHTML;
-  
+
   if($buttons.length>1){
     sortButtons($buttons);
   }
