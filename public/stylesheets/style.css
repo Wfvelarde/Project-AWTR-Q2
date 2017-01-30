@@ -586,3 +586,8 @@ main {
 .collapsible-body {
   border: none;
 }
+
+.rowlist{
+  display: flex;
+  flex-direction: row;
+}

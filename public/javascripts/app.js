@@ -476,8 +476,8 @@ function addTrip(){
 
 
 function tripList(tripDate, tripname){
-          $("#triplist").append("<div class ='tripButt'><div class = 'tripdButt'><li id = '"+tripDate+"'><h3 value = 0 id= '"+tripname+
-        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></li></div>");
+          $("#triplist").append("<li id = '"+tripDate+tripname+"' class = 'rowlist'><div class ='tripButt'><div class = 'tripdButt'><h3 value = 0 id= '"+tripname+
+        "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></div></li>");
 }//end of function tripList
 
 
@@ -485,7 +485,7 @@ function tripList(tripDate, tripname){
     function tripMap(place, tripID, dateID){
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
           var googleTown = town.results[0].formatted_address;
-          $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:30px;'></a>");
+          $("#"+dateID+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:60px;'></a>");
         });
         tripClick();
     }//end of function tripMap
@@ -493,10 +493,8 @@ function tripList(tripDate, tripname){
       //listens to the trip
       function tripClick(){
       $(".tripButt").click(function(){
-        console.log("trip")
         event.preventDefault();
         var tripID = $(this).find("h3").attr("id");
-        console.log($("#selectTripHeading"))
         $("#selectTripHeading").html(tripID+" Trip");
 
       });//end of .tripButt.click
