@@ -9,11 +9,12 @@ var table_changes = require('../table_changes.js')
 router.post('/', function(req, res, next) {
   console.log("Hello, we're gettin trips")
   console.log("Wreck.body", req.body);
+  console.log("req.body.name", req.body.name)
   // var memberRomps = table_changes.get_members(req.body);
   // res.send(memberRomps);
 
-  knex('romps')
-    .innerJoin('romps_trips', 'romps_trips.romps_id', 'romps.id')
+  knex('romps_trips')
+    .innerJoin('romps', 'romps.id', 'romps_trips.romps_id')
     .innerJoin('trip', 'trip.id', 'romps_trips.trip_id')
     .select('trip.name', 'trip.date', 'trip.location')
     .where('romps.name', req.body.name)

@@ -313,12 +313,15 @@ function confirmPost(rompName){
 //listens to the romp being clicked
 function rompClick(){
   $(".rompBut").on("click", function(){
+    $("#triplist").html("");
+
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
 
      localStorage.setItem('lsRompName', romp);
 
-    $("#rompTitle").html(romp+" Romp");
+    $("#rompTitle").html("<img src = 'images/awtrGroupIcon-01.svg'><br>"+romp+" Romp")
+    .css("border-radius","0%");
     //this route get_trips
         var storedRomp = localStorage.getItem('lsRompName');
         var rompObj = {

@@ -11,8 +11,9 @@ router.post('/', function(req, res, next) {
   console.log("Wreck.body", req.body);
 
 
-  knex('activity')
-    .innerJoin('trip', 'activity_id', 'activity.id')
+  knex('activity_trip')
+    .innerJoin('trip', 'trip.id', 'activity_trip.trip_id')
+    .innerJoin('activity', 'activity.id', 'activity_trip.activity_id')
     .select('activity.name', 'activity.time')
     .where('activity.name', req.body.name)
     .then(function(ans) {
@@ -20,7 +21,7 @@ router.post('/', function(req, res, next) {
       res.send(ans);
     })
     .finally(function() {
-      
+
     })
 });
 
