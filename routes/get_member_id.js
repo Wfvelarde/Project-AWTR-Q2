@@ -7,20 +7,21 @@ var table_changes = require('../table_changes.js')
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-  console.log("Hello, we're in activities");
+  console.log("Hello, we're gettin members IDs")
   console.log("Wreck.body", req.body);
-  knex('activity')
-    .insert({
-      name: req.body.actName,
-      time: req.body.timeOfAct
-    })   //this closes insert
-    .returning('id')
-    .then(function(ans) {
-      res.send(ans);
+  var ans;
+
+  knex('members')
+    .where("username", req.body.username)
+    .returning("id")
+    .then(function(result) {
+      console.log('This is inside knex gettin members id ', result);
+      res.send(result);
     })
     .finally(function() {
+
     });
-  
+
 
 
 });

@@ -29,6 +29,7 @@ module.exports = {
         .insert({
           name: obj.name //maybe this
         })   //this closes update
+        .returning("id")
         .finally(function() {
         });
     },   //this closes romps_create
@@ -66,6 +67,7 @@ module.exports = {
           name: obj.actName,
           time: obj.timeOfAct
         })   //this closes insert
+        .returning('id')
         .finally(function() {
         });
     },   //this closes activity_create
@@ -92,18 +94,7 @@ module.exports = {
     },   //this closes mod_activity_create
 
 
-    trip_create: function(obj) {
-      knex('trip')
-        .insert({
-          name: obj.name,
-          date: obj.date,
-          location: obj.location,
-          romps_id: obj.rompsID,
-          activity_id: obj.activityID
-        })   //thiscloses insert
-        .finally(function() {
-        });   //this closes finally
-    },   //this closes schedule_create
+
 
     activity_trip_create: function(obj) {
       knex('activity_trip')

@@ -7,21 +7,23 @@ var table_changes = require('../table_changes.js')
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-  console.log("Hello, we're gettin members romps")
+  console.log("Hello, we're gettin trips")
   console.log("Wreck.body", req.body);
   // var memberRomps = table_changes.get_members(req.body);
   // res.send(memberRomps);
 
-  knex('romps_members_join')
-    .innerJoin('members', 'members.id', 'romps_members_join.members_id')
-    .innerJoin('romps', 'romps.id', 'romps_members_join.romps_id')
-    .distinct('romps.name')
-    .select('romps.name')
-    .where('members.id', req.body.id)
+  knex('romps')
+    .innerJoin('romps_trips', 'romps_trips.romps_id', 'romps.id')
+    .innerJoin('trip', 'trip.id', 'romps_trips.trip_id')
+    .select('trip.name', 'trip.date', 'trip.location')
+    .where('romps.name', req.body.name)
     .then(function(ans) {
-      console.log("This is inside knex get_member_romps ", ans);
+      console.log("This is inside knex get_trips ", ans);
       res.send(ans);
-  })
+    })
+    .finally(function() {
+
+    })
 });
 
 
