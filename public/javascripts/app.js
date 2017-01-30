@@ -197,7 +197,7 @@ function rompForm(romp){
   //this closes route sends FK data to members_romps_join table
 
     $("#confirmromp").click(function(){
-      event.preventDefault();
+
       confirm(romp, otterArr)
       });
 
@@ -217,13 +217,18 @@ function rompForm(romp){
 //WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
     var rompName = {
       name:romp
-    };
+    }
+
+    confirmPost(rompName)
+
+      event.preventDefault();
+
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
         " waves-teal btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
-        $("#romp-form").append("<div class='romp-content'>"+
+        $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3 class=>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
