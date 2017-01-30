@@ -46,8 +46,44 @@ function signIn(username,password){
           }
           if (data.username !==""&&data.password !==""){
             var dataIn = data;
-
             console.log("this is dataIn ", dataIn);
+
+        //WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
+          //this route puts romp data in table
+            $.post('/get_member_id', dataIn, function(rompArr){
+              console.log("This is data from get_member_id ", rompArr);
+              console.log("This is id ", rompArr[0].id);
+              localStorage.setItem('lsMemberID', rompArr[0].id);
+            });  //ends route putting romp data in table
+
+      //this route get_member_romps
+          var lsMemID = localStorage.getItem('lsMemberID');
+          console.log("this is the userId from localStorage", lsMemID)
+          var mrObj = {
+            id: 1 //lsMemID
+          }
+
+          $.post('/get_member_romps', mrObj, function(rompArr) {
+            var bucket = [];
+            var drops;
+            console.log('This is data from get_member_romps ', rompArr);
+            for(var i=0; i<rompArr.length; i++) {
+              drops =(rompArr[i].name);
+            //   for(var q=0; q<bucket.length; q++) {
+            //     if(drops === bucket[q]) {
+            //       return
+            //     } else {
+            //     }
+            //   }
+
+              bucket.push(drops)
+              console.log(bucket);
+            }
+            localStorage.setItem('lsRompArray', bucket);
+
+          })  //this ends route get_member_romps
+
+
 
       //this route sends and compares passwords
           $.post('/verify', dataIn, function(data){
@@ -58,13 +94,11 @@ function signIn(username,password){
         }//last if statement passing the object
 
 
-//WRITE CODE TO SEND THE NEW MEMBERID TO LOCAL STORAGE
+
+
       }//end of else statments for data object
 
-    //this route puts romp data in table
-      $.get('/', romp, function(rompArr){
-        console.log(rompArr);
-      });  //ends route putting romp data in table
+
 
   }//end of Sign In
 
@@ -150,6 +184,9 @@ function createRomp(i){
       });
 }
 
+
+
+
 //creates a member form for the romp
 function rompForm(romp){
       console.log("rompform");
@@ -164,6 +201,7 @@ function rompForm(romp){
     $(".button").append("<a id = 'addmember' class='waves-effect"+
     " waves-light btn'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
     " waves-light btn'>Confirm This Romp</a>");
+
 
     addOtter(romp);
 }  //ends rompForm

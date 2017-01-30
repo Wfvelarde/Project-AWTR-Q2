@@ -10,7 +10,7 @@ const saltRounds = 10;
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-  console.log("Hello, we're in members")
+  console.log("Hello, we're in members create ")
   console.log("Wreck.body", req.body);
   var pwd = req.body.password;
   console.log("unhashedPw", pwd);
