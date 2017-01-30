@@ -197,7 +197,7 @@ function rompForm(romp){
   //this closes route sends FK data to members_romps_join table
 
     $("#confirmromp").click(function(){
-      event.preventDefault();
+
       confirm(romp, otterArr)
       });
 
@@ -217,13 +217,18 @@ function rompForm(romp){
 //WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
     var rompName = {
       name:romp
-    };
+    }
+
+    confirmPost(rompName)
+
+      event.preventDefault();
+
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
-        " waves-teal btn'>"+romp+"</a></div><br>");
+        " waves-light   btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
-        $("#romp-form").append("<div class='romp-content'>"+
+        $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3 class=>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
@@ -270,9 +275,10 @@ function createActivity(){
 //creates a form for the activity
     if($("#activity-form").html()===""||time===undefined || act === undefined){
           $("#activity-form").append("<form id = 'inputform' action='action_page.php'>"+
-          "<h3>Time:</h3><br><input style = 'font-size:350%;' type='time' name='time' id = 'time' value=''"+
-          "><h3>Activity:</h3><br><input style = 'font-size:350%;' type='text' id ='act' "+
-          "name='act' value=''></form> ");
+          "<h3>Time:</h3><br><input autofocus type='time' name='time' id = 'time' value='' "+
+          "><h3>Activity:</h3><br><input type='text' id ='act' "+
+          "name='act' value='' autofocus></form> ");
+
            time = $('#time').val();
            act = $('#act').val();
          }else if(time==="" || act === "" ){
@@ -424,9 +430,10 @@ function addTrip(){
       if ($("#tripform")[0].innerText===""){
         console.log("no form")
         //creates the trip form
-        $("#tripform").append("<h3>Trip Name:</h3><br><input style = 'font-size:350%;' type='name' name='trip' id = 'tripname' value=''>"+
-        "<br><h3>Trip Location:</h3><br><input style = 'font-size:350%;' type='name' name='location' id = 'location' value=''>"+
-        "<br><h3>Trip Date:</h3><br><input style = 'font-size:350%;' type='date' name='date' id = 'date' value=''>");
+        $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value='' autofocus>"+
+        "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value=''>"+
+        "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value=''>");
+
       }else{
         var tripname = $("#tripname").val();
         var tripLocation = $("#location").val();
@@ -486,9 +493,11 @@ function tripList(tripDate, tripname){
       //listens to the trip
       function tripClick(){
       $(".tripButt").click(function(){
+        console.log("trip")
         event.preventDefault();
         var tripID = $(this).find("h3").attr("id");
-        $("#tripTitle").html(tripID+" Trip");
+        console.log($("#selectTripHeading"))
+        $("#selectTripHeading").html(tripID+" Trip");
 
       });//end of .tripButt.click
 
