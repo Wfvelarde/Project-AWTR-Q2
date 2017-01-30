@@ -3,7 +3,9 @@ font-family: 'Lobster Two', cursive;*/
 /*nav {
   line-height: normal !important;
 }*/
-
+h3{
+  font-size: 3rem;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -48,6 +50,7 @@ main {
     justify-content: space-between;
     align-items: center !important;
     align-content: center;
+    /*position: fixed !important;*/
   }
 
   .awtrMenuButtonCollapse {
@@ -245,6 +248,11 @@ main {
     color:white !important;
   }
 
+  .awtrCopyright {
+    color:white !important;
+    text-align: center;
+  }
+
   .will-container {
   	display: flex;
   	align-items: center;
@@ -352,6 +360,9 @@ main {
   display: flex;
 }
 
+.awtrMainRow {
+  width:60vw;
+}
 .awtrBox{
   height: 50%;
   margin-top: 35%;
@@ -369,7 +380,7 @@ main {
   font-size: 6rem;
   padding: 2%;
   height: auto;
-  width:60vw;
+  width:100%;
   line-height: 100px;
   border-bottom: none;
   /*border-radius: 20px;*/
@@ -378,18 +389,43 @@ main {
   -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   background-color: #80deea;
+  margin-right: 0 !important;
+  border-radius: 50%;
+  align-content: center;
+  justify-content: center;
 }
 
 .rompExplained {
-  font-size: 2rem;
+  /*display: flex;*/
+  font-size: 3rem;
   margin: 0;
+  /*line-height: normal;*/
+  /*position: absolute;*/
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  width: auto;
+  /*padding-left: 10%;*/
+  /*padding-right: auto;*/
+  margin-top: 2%;
+  /*margin-bottom: 15%;*/
+}
+
+.travelGroup {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 .myRomps {
   margin-bottom: 0;
+  margin-top: 15%;
 }
 .existingRomps {
   /*padding-bottom: 4vh;*/
   padding-left: 5%;
+  margin-top: 20%;
 }
 .addRompName {
   padding-top: 4%;
@@ -398,10 +434,12 @@ main {
 
 #confirmromp{
   font-size: 3rem;
-  padding:3%;
+  padding:6%;
   height:auto;
   width: 100%;
   margin-top: 5%;
+  border: 10px solid dimgrey;
+  /*border-radius: 10%;*/
 }
 
 .newRompName {
@@ -423,7 +461,7 @@ main {
   box-shadow: none;
 }
 
-#addmember {
+#addmember#werrstt {
   font-size: 3rem;
   padding:3%;
   height:auto;
@@ -448,12 +486,13 @@ main {
   height: auto;
   width:auto;
   line-height: 100px;
-  /*border-radius: 20px;*/
+  /*border-radius: 10%;*/
   line-height: 5rem;
   margin-left: none !important;
   text-align: center;
   border-bottom: none;
   margin:5%;
+  /*margin-top: 5%;*/
   -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
@@ -471,16 +510,75 @@ main {
   font-size: 6rem;
 }
 
-#activity {
-  padding:3%;
-  height:auto;
-  width: 100%;
-  font-size: 3rem;
-}
 #addtrip{
   padding:3%;
   height:auto;
   width: 100%;
+}
+#MyRomp {
+  background-color: white;
+}
+#addmember {
+  width: 100%;
+  font-size: 3rem;
+  height: auto;
+  padding: 3%;
+}
+
+.rompBut {
+  color: grey;
+}
+
+#tripname {
+  width: 100%;
+  font-size: 3rem;
+  height:
+}
+#location{
+  width: 100%;
+  font-size: 3rem;
+}
+
+#date {
+  width: 100%;
+  font-size: 3rem;
+}
+
+#time {
+  width: 100%;
+  font-size: 3rem;
+}
+#act {
+  width: 100%;
+  font-size: 3rem;
+}
+
+#activity {
+  color: dimgrey;
+  text-transform: none;
+  font-size: 6rem;
+  padding: 0%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: auto;
+  width:auto;
+  line-height: 100px;
+  /*border-radius: 20px;*/
+  line-height: 5rem;
+  margin-left: none !important;
+  text-align: center;
+  border-bottom: none;
+  margin:5%;
+  margin-bottom: 10%;
+  /*margin-top: 8%;*/
+  -webkit-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
+  background-color: #80deea;
+  -webkit-font-smoothing: antialiased;
+  /*border-radius: 10%;*/
+
+
 }
 
 .collapsible-body {
