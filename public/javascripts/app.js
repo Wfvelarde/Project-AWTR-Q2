@@ -8,6 +8,11 @@ $( document ).ready(function(){
     draggable: true
   });//end of Nav listener
 
+$("#otterTitle").click(function(){
+  console.log("OTTERS")
+  $('.button-collapse').sideNav('show');
+
+})
   rompClick();
   tripClick();
 //sign in button event listener
