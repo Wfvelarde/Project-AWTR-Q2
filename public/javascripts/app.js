@@ -286,7 +286,7 @@ function rompForm(romp){
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
         " waves-light   btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
-        $(".button").append("<div class='romp-content'>"+
+        $("#romp-form").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3 class=>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
