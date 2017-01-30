@@ -14,6 +14,9 @@ var modActivity = require('./routes/modActivity');
 var verify = require('./routes/verify');
 var trips = require('./routes/trips');
 var activities = require('./routes/activities');
+var trip_activity_join = require('./routes/trip_activity_join');
+var romp_trips = require('./routes/romp_trips');
+var get_member_romps = require('./routes/get_member_romps');
 
 
 var app = express();
@@ -39,8 +42,9 @@ app.use('/modActivity', modActivity);
 app.use('/verify', verify);
 app.use('/trips', trips);
 app.use('/activities', activities);
-
-
+app.use('/trip_activity_join', trip_activity_join);
+app.use('/romp_trips', romp_trips);
+app.use('/get_member_romps', get_member_romps);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

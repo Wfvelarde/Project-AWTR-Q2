@@ -53,7 +53,7 @@ module.exports = router;
 
   //THIS IS TO SEND AN RECEIVE DATA FROM LOCAL STORAGE
 //username
-  localStorage.setItem('userName', Richard);
+  localStorage.setItem('lsMemberID', 1);
 
   var retrievedObject = localStorage.getItem('userName');
 

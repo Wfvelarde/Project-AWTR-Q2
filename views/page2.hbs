@@ -1,3 +1,4 @@
+
 <!-- NAV/HEADER -->
       <header>
           <nav class="awtrNav">
@@ -18,21 +19,25 @@
 <main>
     <div class="awtrMain col l12 s12">
 
+      <div class="row">
+
+
         <!-- romp section -->
-        <div class="awtrMain2 col l12 s12">
             <ul id="selectromp" class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div id="rompTitle" class="collapsible-header center-align"><p class="myRomps">My Romps</p><p class="rompExplained">(your travel group)<p></div>
+
+                    <div id="rompTitle" class="collapsible-header center-align"><p class="myRomps">My Romps</p><p class="rompExplained">(your travel group)</p></div>
 
                     <div class="collapsible-body">
 
                        <!-- <h1>Create Romp</h1> -->
-                       <div id="romp-form">
+                       <h3 class="existingRomps">My existing Romps:</h3>
+                       <div id="romplist">
+                       </div>
+
+                        <div id="romp-form">
                          <div class="romp-content">
 <!-- ______________ -->
-                          <h3 class="existingRomps">My existing Romps:</h3>
-                          <div id="romplist">
-                          </div>
 
                           <form id="form">
                             <h3 class="addRompName">Add a romp name:</h3>
@@ -49,10 +54,13 @@
 
                           </div>
                         </div>
-                       </div>
+                        </div>
+
                       </div>
                  </li>
                </ul>
+
+
 
 <!-- TRIP section -->
         <ul id="selectTripUL" class="collapsible" data-collapsible="accordion">
@@ -73,8 +81,12 @@
 
         <!-- activity section -->
         <div id = "activity-form" class = "row"></div>
+
         <div id= "activity" class="waves-effect waves-light btn">Add Activity</div>
-      </div>
+
+
 
       </div>
+    </div>
+
 </main>

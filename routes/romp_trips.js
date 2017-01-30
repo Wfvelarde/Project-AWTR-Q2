@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
   console.log("Wreck.body", req.body);
 //get member id from member_id in obj
 
-  table_changes.members_romps_join(req.body);
+  table_changes.romps_trips_create(req.body);
 
   res.send("Finish mem_romps_join");
 

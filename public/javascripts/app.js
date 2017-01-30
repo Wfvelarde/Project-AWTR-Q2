@@ -197,6 +197,7 @@ function rompForm(romp){
   //this closes route sends FK data to members_romps_join table
 
     $("#confirmromp").click(function(){
+
       confirm(romp, otterArr)
       });
 
@@ -221,8 +222,9 @@ function rompForm(romp){
     confirmPost(rompName)
 
       event.preventDefault();
+
       //appending romps to the list
-        $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' class='waves-effect"+
+        $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
         " waves-teal btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
@@ -233,9 +235,10 @@ function rompForm(romp){
           "</form>"+
           "<div id='new-romp'></div>"+
           "<div class='button'>"+
-            "<a id = 'create-romp"+i+"' class='waves-effect waves-light btn'>Create Romp</a>"+
+            "<a id = 'create-romp"+i+"' style = ' font-size: 300%; padding:3%; height:auto; width:100%; ' class='waves-effect waves-light btn'>Create Romp</a>"+
           "</div>"+
         "</div>");
+        confirmPost(rompName)
         createRomp(i);
         rompClick();
   }//end of function confirm
