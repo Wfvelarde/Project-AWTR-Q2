@@ -277,7 +277,7 @@ main {
   height: 70px;
   left:25%;
   top:-20%;
-  position: relative;
+  position: center;
   -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
   /*animation-name: example;
@@ -295,7 +295,7 @@ main {
   height: 70px;
   left:18%;
   top:-20%;
-  position: relative;
+  position: center;
   -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 2.1s; /* Safari 4.0 - 8.0 */
   /*animation-name: example;
@@ -308,7 +308,7 @@ main {
   100% {left:18%; top:0%;}
 }
 
-#title{
+#otterTitle{
   margin-top: 8em;
   font-size: 20px;
 
@@ -358,7 +358,9 @@ main {
 
 .buddies {
   display: flex;
+  /*padding-bottom: 100%;*/
 }
+
 
 .awtrMainRow {
   width:60vw;
@@ -506,7 +508,7 @@ main {
   border: none !important;
 }
 
-.selectTripHeading {
+#selectTripHeading {
   font-size: 6rem;
 }
 
@@ -576,6 +578,8 @@ main {
   box-shadow: 10px 10px 22px 0px rgba(0,0,0,0.3);
   background-color: #80deea;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
   /*border-radius: 10%;*/
 
 
@@ -584,3 +588,10 @@ main {
 .collapsible-body {
   border: none;
 }
+
+.rowlist{
+  display: flex;
+  flex-direction: row;
+}
+
+/*a comment*/
