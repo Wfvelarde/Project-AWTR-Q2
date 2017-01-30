@@ -277,7 +277,7 @@ main {
   height: 70px;
   left:25%;
   top:-20%;
-  position: relative;
+  position: center;
   -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
   /*animation-name: example;
@@ -295,7 +295,7 @@ main {
   height: 70px;
   left:18%;
   top:-20%;
-  position: relative;
+  position: center;
   -webkit-animation-name: otter2; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 2.1s; /* Safari 4.0 - 8.0 */
   /*animation-name: example;
@@ -358,7 +358,9 @@ main {
 
 .buddies {
   display: flex;
+  /*padding-bottom: 100%;*/
 }
+
 
 .awtrMainRow {
   width:60vw;

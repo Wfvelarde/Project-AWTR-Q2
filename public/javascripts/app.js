@@ -254,7 +254,9 @@ function rompClick(){
   $(".rompBut").on("click", function(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
-    $("#rompTitle").html(romp+" Romp");
+    $("#rompTitle").html(romp+" Romp")
+    .css("border-radius", "0%");
+
   });
 }//end of rompClick
 
@@ -491,6 +493,7 @@ function tripList(tripDate, tripname){
 
       //listens to the trip
       function tripClick(){
+        console.log("trip")
       $(".tripButt").click(function(){
         event.preventDefault();
         var tripID = $(this).find("h3").attr("id");
