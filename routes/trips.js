@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex');
+
 
 var table_changes = require('../table_changes.js')
 
@@ -7,8 +9,21 @@ var table_changes = require('../table_changes.js')
 router.post('/', function(req, res, next) {
   console.log("Hello, we're trippin")
   console.log("Wreck.body", req.body);
-  table_changes.trip_create(req.body);
-  res.send("Finish trips");
+  knex('trip')
+    .insert({
+      name: req.body.name,
+      date: req.body.date,
+      location: req.body.location,
+      romps_id: req.body.rompsID,
+    })   //thiscloses insert
+    .returning('id')
+    .then(function(ans) {
+      res.send(ans);
+    })
+    .finally(function() {
+      console.log("This is the end of trips.js knex");
+
+    });   //this closes finally
 
 
 });

@@ -56,32 +56,6 @@ function signIn(username,password){
               localStorage.setItem('lsMemberID', rompArr[0].id);
             });  //ends route putting romp data in table
 
-      //this route get_member_romps
-          var lsMemID = localStorage.getItem('lsMemberID');
-          console.log("this is the userId from localStorage", lsMemID)
-          var mrObj = {
-            id: 1 //lsMemID
-          }
-
-          $.post('/get_member_romps', mrObj, function(rompArr) {
-            var bucket = [];
-            var drops;
-            console.log('This is data from get_member_romps ', rompArr);
-            for(var i=0; i<rompArr.length; i++) {
-              drops =(rompArr[i].name);
-            //   for(var q=0; q<bucket.length; q++) {
-            //     if(drops === bucket[q]) {
-            //       return
-            //     } else {
-            //     }
-            //   }
-
-              bucket.push(drops)
-              console.log(bucket);
-            }
-            localStorage.setItem('lsRompArray', bucket);
-
-          })  //this ends route get_member_romps
 
 
 
@@ -173,8 +147,8 @@ function signIn(username,password){
     createRomp(i);
 
 //creates a group
-function createRomp(i){
-    $("#create-romp"+i).click(function(){
+function createRomp(){
+    $("#create-romp1").click(function(){
         event.preventDefault();
           var romp = $("#rompname").val();
           if (romp!==""){
@@ -195,13 +169,23 @@ function rompForm(romp){
       "<ul id='memberlist'></ul>"+"<h3 class='otterNameEntered'>Enter otter name:</h3>"+
       "<input id = 'membername' type='text' name='membername' autofocus='autofocus' value=''><br>"+
       "</form>");
-    $("#create-romp"+i).remove();
+    $("#create-romp1").remove();
     $("#form").remove();
 
     $(".button").append("<a id = 'addmember' class='waves-effect"+
     " waves-light btn'>Add Otter</a>"+"<a id = 'confirmromp' class='waves-effect"+
     " waves-light btn'>Confirm This Romp</a>");
 
+    localStorage.setItem('lsRompName', romp);
+    var rompObj = {
+      name: romp
+    }
+    //this route get_romp_ID
+    // $.post('/get_romp_ID', rompObj, function(data) {
+    //   console.log("THIS IS ROMP ID DATA ", data);
+      // joinTableMemRomps(data);
+      // localStorage.setItem('lsRompID' xxxxx);
+    // }) //this closes get_romp_ID
 
     addOtter(romp);
 }  //ends rompForm
@@ -216,23 +200,29 @@ function rompForm(romp){
         otterArr.push(otter);
 
     //pushing latest otterArr to localStorage
-    localStorage.setItem('lsOtterArray', otterArr);
+    localStorage.setItem('lsOtterArray', otter);
     //closing pushing latest otterArr to localStorage
 
   });  //this closes addmember.click
 
-//this is garbage data for following post
-      var newMember = {
-        rompID: 29,
-        memberID: 10
-      };
-//this is garbage data for following post
 
+  function joinTableMemRomps() {
+      //this is data for the mem_romps_join post
+      var memberIDls = localStorage.getItem('lsMemberID');
+      var rompIDls = localStorage.getItem('lsRomID');
+      // var rompID = localStorage.getItem('lsRompID');
+      var newMember = {
+        rompID: rompIDls,
+        memberID: memberIDls
+      };
   //this route sends FK data to members_romps_join table
       $.post('/mem_romps_join', newMember, function(data) {
-        console.log(data);
+        console.log("This is members_romps_join data ", data);
       }) //this closes post
   //this closes route sends FK data to members_romps_join table
+}
+
+
 
     $("#confirmromp").click(function(){
 
@@ -242,11 +232,38 @@ function rompForm(romp){
   }   //this closes function addOtter
 
 //WRITE A FUNCTION THAT GETS ROMPARRAY FROM LOCAL STORAGE AND LOOP THROUGH CALLING CONFIRM function
+  // var lsRompArr = localStorage.getItem('lsRompArray');
+
   //confirm romp to the list
+  $("#rompTitle").click(function(){
+    $("#romplist").html("");
+    console.log("LISTEN TO ME")
+    var lsMemID = localStorage.getItem('lsMemberID');
+    console.log("this is the userId from localStorage", lsMemID)
+    var mrObj = {
+      id: 1 //lsMemID
+    }
 
-  $("#joinRomp").click(function(){
+    $.post('/get_member_romps', mrObj, function(rompArr) {
+      var bucket = [];
+      var drops;
+      console.log('This is data from get_member_romps ', rompArr);
+      for(var i=0; i<rompArr.length; i++) {
+        drops =(rompArr[i].name);
+        confirm(drops,[]);
+        bucket.push(drops)
+        console.log(bucket);
+      }
+      localStorage.setItem('lsRompArray', bucket);
 
+    })
   });  //this closes #joinRomp
+
+
+  //this route get_member_romps
+   //this ends route get_member_romps
+
+
 
 
   function confirm(romp, otterArr){
@@ -256,8 +273,7 @@ function rompForm(romp){
     var rompName = {
       name:romp
     }
-
-    confirmPost(rompName)
+    console.log("confirm", romp);
 
       event.preventDefault();
 
@@ -265,7 +281,6 @@ function rompForm(romp){
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
         " waves-light   btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
-        i=$("#romplist")[0].childNodes.length;
         $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3 class=>Romp Name:</h3>"+
@@ -273,17 +288,20 @@ function rompForm(romp){
           "</form>"+
           "<div id='new-romp'></div>"+
           "<div class='button'>"+
-            "<a id = 'create-romp"+i+"' style = ' font-size: 300%; padding:3%; height:auto; width:100%; ' class='waves-effect waves-light btn'>Create Romp</a>"+
+            "<a id = 'create-romp1' style = ' font-size: 300%; padding:3%; height:auto; width:100%; ' class='waves-effect waves-light btn'>Create Romp</a>"+
           "</div>"+
         "</div>");
         confirmPost(rompName)
-        createRomp(i);
+        createRomp();
         rompClick();
   }//end of function confirm
 
 function confirmPost(rompName){
+  console.log("rompObj before ", rompName);
   $.post('/romps', rompName, function(data) {
-    console.log(data);
+    console.log("This is rompObj data ", data);
+    localStorage.setItem('lsRompID', data[0]);
+
   })
 }  //closes function confirmPost
 
@@ -292,7 +310,29 @@ function rompClick(){
   $(".rompBut").on("click", function(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
+
+     localStorage.setItem('lsRompName', romp);
+
     $("#rompTitle").html(romp+" Romp");
+    //this route get_trips
+        var storedRomp = localStorage.getItem('lsRompName');
+        var rompObj = {
+          name: storedRomp
+        };
+        console.log("Tis is the storedRomp from local storage ", storedRomp);
+        $.post('/get_trips', rompObj, function(data) {
+          console.log("this is the data for get_trips ", data);
+          for(var i = 0; i < data.length; i++) {
+            console.log("This is tripLIst DATADATA ", data[i]);
+            tripList(data[i].date, data[i].name);
+            tripMap(data[i].location, data[i].name, data[i].date);
+
+          }
+        }) //this closes route get_trips
+
+
+
+
   });
 }//end of rompClick
 
@@ -333,13 +373,14 @@ function createActivity(){
           //this route sends data to activities table
              $.post('/activities', timeAct, function(data) {
                console.log(data);
+               localStorage.setItem('lsActivitiesID', data[0]);
              });
           //closes route sends data to activities table
 
           //fake data  fake data  fake data
              var bzsObj = {
-              bzTrip: 25,
-              bzAct: 14
+              bzTrip: localStorage.getItem('lsTripID'),
+              bzAct: localStorage.getItem('lsActivitiesID')
              }
           //fake data  fake data  fake data
 
@@ -480,19 +521,27 @@ function addTrip(){
         var tripObj = {
           name: tripname,
           location: tripLocation,
-          date: tripDate
+          date: tripDate,
+          rompID: localStorage.getItem('lsRompID')
         }
+
+
+
+          localStorage.setItem('lsTripName', tripname);
+          localStorage.setItem('lsTripLocation', tripLocation);
+          localStorage.setItem('lsTripDate', tripDate);
 
     //this route created row on trips table
         $.post('/trips', tripObj, function(data) {
-          console.log(data);
+          console.log("THIS IS TRIPS DATA 888888 ", data);
+          localStorage.setItem('lsTripID', data[0])
         });
     //closes route created row on romp_trips table
 
     //fake data  fake data  fake data
         var rmpTrp = {
-          rmpName: 29,
-          trpName: 25
+          rmpName: localStorage.getItem('lsRompID'),
+          trpName: localStorage.getItem('lsTripID')
         };
     //fake data  fake data  fake data
 
@@ -533,6 +582,16 @@ function tripList(tripDate, tripname){
         event.preventDefault();
         var tripID = $(this).find("h3").attr("id");
         $("#tripTitle").html(tripID+" Trip");
+
+        var tripObj = {
+          name: tripID
+        }
+
+        //this route get_activities
+            $.post('/get_activities', tripObj, function(data) {
+              console.log("THIS IS ACTIVITEIES DATA ",data.id);
+            });
+        //this ends get_activities
 
       });//end of .tripButt.click
 
