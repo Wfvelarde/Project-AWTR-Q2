@@ -467,6 +467,7 @@ main {
   height:auto;
   width: 100%;
 }
+
 .otterLI {
   font-size: 2rem;
   color:white;
@@ -578,4 +579,8 @@ main {
   /*border-radius: 10%;*/
 
 
+}
+
+.collapsible-body {
+  border: none;
 }
