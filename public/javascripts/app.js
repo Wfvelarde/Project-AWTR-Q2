@@ -8,6 +8,11 @@ $( document ).ready(function(){
     draggable: true
   });//end of Nav listener
 
+$("#otterTitle").click(function(){
+  console.log("OTTERS")
+  $('.button-collapse').sideNav('show');
+
+})
   rompClick();
   tripClick();
 //sign in button event listener
@@ -197,7 +202,7 @@ function rompForm(romp){
   //this closes route sends FK data to members_romps_join table
 
     $("#confirmromp").click(function(){
-      event.preventDefault();
+
       confirm(romp, otterArr)
       });
 
@@ -217,13 +222,18 @@ function rompForm(romp){
 //WRITE A CIDE THAT SETS ROMPARRAY ON LOCAL STORAGE
     var rompName = {
       name:romp
-    };
+    }
+
+    confirmPost(rompName)
+
+      event.preventDefault();
+
       //appending romps to the list
         $("#romplist").append("<div class = 'rompBut'><a id = '"+romp+"' style = ' font-size: 300%; width:100%; padding:1%; height: auto;' class='waves-effect"+
         " waves-light   btn'>"+romp+"</a></div><br>");
         $(".romp-content").remove();
         i=$("#romplist")[0].childNodes.length;
-        $("#romp-form").append("<div class='romp-content'>"+
+        $(".button").append("<div class='romp-content'>"+
           "<form id='form'>"+
             "<h3 class=>Romp Name:</h3>"+
             "<input id = 'rompname' type='text' name='rompname' value= ''><br>"+
@@ -249,7 +259,8 @@ function rompClick(){
   $(".rompBut").on("click", function(){
     event.preventDefault();
     var romp = $(this).find("a").attr("id");
-    $("#rompTitle").html(romp+" Romp");
+    $("#rompTitle").html(romp+" Romp")
+    .css("border-radius", "0%");
   });
 }//end of rompClick
 
@@ -272,6 +283,7 @@ function createActivity(){
           "<h3>Time:</h3><br><input autofocus type='time' name='time' id = 'time' value='' "+
           "><h3>Activity:</h3><br><input type='text' id ='act' "+
           "name='act' value='' autofocus></form> ");
+
            time = $('#time').val();
            act = $('#act').val();
          }else if(time==="" || act === "" ){
@@ -317,8 +329,8 @@ function activityButton(act,time){
   var settime = timeSet(time);
   var actID = actionID(act);
   $("#activity-form").append(
-    "<div class = 'buttonAct' value="+time+"><h1 value = "+time+" id='"+actID+"' class='waves-effect waves-light btn' >"+
-    settime+"  "+act+"</h1><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
+    "<div class = 'buttonAct' value="+time+"><h2 value = "+time+" id='"+actID+"' class='waves-effect waves-light btn' >"+
+    settime+"  "+act+"</h2><div id= 'actbreak'><br></div><div id = '"+actID+"edit' value = "+1+"></div></div>"
   );
 
   var $buttons = $(".buttonAct");
@@ -346,8 +358,8 @@ function activityButton(act,time){
     }
       $(".buttonAct").on("click", function(){
         event.preventDefault();
-        var act = $(this).find("h1").attr("id");
-        var timeVal=$(this).find("h1").attr("value");
+        var act = $(this).find("h2").attr("id");
+        var timeVal=$(this).find("h2").attr("value");
         activityEdit(act, timeVal);
       });
   }//end of function sortButtons
@@ -398,8 +410,8 @@ function activityEdit(act, timeVal){
         $(".editform").remove();
         //creates the edit form
         $("#"+actID+"edit").append("<form class = 'editform' id = '"+actID+"form' action='action_page.php'>"+
-        "<h3>Time:</h3><br><input  type='time' name='time' id = 'edittime' value="+timeVal+
-        "><h3>Activity:</h3><br><input type='text' id ='editact' "+
+        "<h3>Time:</h3><br><input  style = 'font-size:350%;' type='time' name='time' id = 'edittime' value="+timeVal+
+        "><h3>Activity:</h3><br><input style = 'font-size:350%;' type='text' id ='editact' "+
         "name='act' value='"+act+"'></form> ");
       }else if(edit >= 1){
         var editTime = $("#edittime").val();
@@ -426,6 +438,7 @@ function addTrip(){
         $("#tripform").append("<h3>Trip Name:</h3><br><input type='name' name='trip' id = 'tripname' value='' autofocus>"+
         "<br><h3>Trip Location:</h3><br><input type='name' name='location' id = 'location' value=''>"+
         "<br><h3>Trip Date:</h3><br><input type='date' name='date' id = 'date' value=''>");
+
       }else{
         var tripname = $("#tripname").val();
         var tripLocation = $("#location").val();
@@ -468,7 +481,7 @@ function addTrip(){
 
 
 function tripList(tripDate, tripname){
-          $("#triplist").append("<li id = '"+tripDate+"'><div class ='tripButt'><div class = 'tripdButt'><h3 value = 0 id= '"+tripname+
+          $("#triplist").append("<li id = '"+tripDate+tripname+"' class = 'rowlist'><div class ='tripButt'><div class = 'tripdButt'><h3 value = 0 id= '"+tripname+
         "' class='waves-effect waves-teal btn-flat'>"+tripname+" "+ tripDate + "</h3></div></div></li>");
 }//end of function tripList
 
@@ -477,7 +490,7 @@ function tripList(tripDate, tripname){
     function tripMap(place, tripID, dateID){
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+place+"&key=AIzaSyAFSPs5znb5ggZ7ZyajBCJMdBiKEXV6UG0", function(town){
           var googleTown = town.results[0].formatted_address;
-          $("#"+dateID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:30px;'></a>");
+          $("#"+dateID+tripID).append("<a href='https://www.google.com/maps/place/"+googleTown+"' target='_blank'><img src = 'images/gps.png' style = 'width:60px;'></a>");
         });
         tripClick();
     }//end of function tripMap
@@ -487,7 +500,7 @@ function tripList(tripDate, tripname){
       $(".tripButt").click(function(){
         event.preventDefault();
         var tripID = $(this).find("h3").attr("id");
-        $("#tripTitle").html(tripID+" Trip");
+        $("#selectTripHeading").html(tripID+" Trip");
 
       });//end of .tripButt.click
 
